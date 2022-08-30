@@ -1,7 +1,7 @@
 ---
-title: "Hugo Framework and Markdown"
+title: "Module 2: HashiCorp terraform"
 chapter: true
-weight: 40
+weight: 50
 ---
 
 # Hugo Framework and Markdown

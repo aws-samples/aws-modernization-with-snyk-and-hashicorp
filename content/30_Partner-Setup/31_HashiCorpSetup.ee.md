@@ -1,5 +1,5 @@
 ---
-title: "Partner Setup Instructions" # MODIFY THIS TITLE
+title: "HashiCorp Setup Instructions"
 chapter: true
 weight: 1 # MODIFY THIS VALUE TO REFLECT THE ORDERING OF THE MODULES
 ---

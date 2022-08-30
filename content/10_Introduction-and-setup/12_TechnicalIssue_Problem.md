@@ -9,14 +9,14 @@ weight: 12 # MODIFY THIS VALUE TO REFLECT THE ORDERING OF THE MODULES IF APPLICA
 ## The technical hurdles to managing infrastructure <!-- MODIFY THIS SUBHEADING -->
 This paragraph block should be an introduction to the technical issue the solution is facing. An example of this can be seen at the bottom of this page. <br>
 
-{{% notice info %}}
-<p style='text-align: left;'>
-**REMOVE:** With the exception of _index.md, the module folders and filenames should be changed to better reflect their content, i.e. 1_Planning as the folder and 11_HowToBegin as the first submodule. Changing the "weight" value of the header is ultimately what reflects the order the modules are presented.
-</p>
-{{% /notice %}}
-
-### Next Section: Who we are <!-- MODIFY THIS HEADING -->
+### Infrastructure Security
 **TODO: Let's describe Snyk & HashiCorp**
+### Infrastructure as Code
+**TODO: Let's describe Snyk & HashiCorp**
+
+## Next: The Technical Problem <!-- TODO: MODIFY the body -->
+In the next section, we provide an overview of HashiCorp and Snyk.
+
 
 **TODO: Delete below this line.**
 #### Example of content guidance

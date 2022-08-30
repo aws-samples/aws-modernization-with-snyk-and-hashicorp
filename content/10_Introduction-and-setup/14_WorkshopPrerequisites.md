@@ -1,10 +1,10 @@
 ---
-title: "Workshop Prerequisites" # MODIFY THIS TITLE IF APPLICABLE
+title: "Workshop Prerequisites"
 chapter: true
-weight: 14 # MODIFY THIS VALUE TO REFLECT THE ORDERING OF THE MODULES IF APPLICABLE
+weight: 14
 ---
 
-# Workshop Prerequisites <!-- MODIFY THIS HEADING IF APPLICABLE -->
+# Workshop Prerequisites
 We'll need to setup the following:
 
 - Snyk Account
@@ -12,21 +12,20 @@ We'll need to setup the following:
 - HashiCorp Terraform Cloud account
 - HashiCorp terraform CLI
 
-## Snyk Account <!-- MODIFY THIS SUBHEADING -->
+## Snyk Account
 
 This paragraph block should be an introduction to the submodule. Are there any prerequisites the user must perform to begin the workshop? Do they need to sign up for any external accounts or install any tools? An example of content guidance can be found at the bottom of this page.
 
-## Snyk CLI <!-- MODIFY THIS SUBHEADING -->
+## Snyk CLI
 
 This paragraph block should be an introduction to the submodule. Are there any prerequisites the user must perform to begin the workshop? Do they need to sign up for any external accounts or install any tools? An example of content guidance can be found at the bottom of this page.
 
-## HashiCorp Terraform Cloud <!-- MODIFY THIS SUBHEADING -->
+## HashiCorp Terraform Cloud
 
 This paragraph block should be an introduction to the submodule. Are there any prerequisites the user must perform to begin the workshop? Do they need to sign up for any external accounts or install any tools? An example of content guidance can be found at the bottom of this page.
 
-## Terraform CLI  <!-- MODIFY THIS HEADING -->
+## Terraform CLI
 This paragraph block can optionally be utilized to lead into the next section of the workshop.
-
 
 
 #### Example of content guidance

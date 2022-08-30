@@ -1,17 +1,16 @@
 ---
-title: "Who We Are" # MODIFY THIS TITLE
+title: "Who We Are"
 chapter: true
-weight: 13 # MODIFY THIS VALUE TO REFLECT THE ORDERING OF THE MODULES IF APPLICABLE
+weight: 13
 ---
 
-# Who Are We? <!-- MODIFY THIS HEADING TO REFLECT THE PROBLEM THE WORKSHOP IS ADDRESSING -->
+# Who Are We?
 
-## HashiCorp <!-- MODIFY THIS SUBHEADING -->
+## HashiCorp
 This paragraph block should be a brief introduction to the partner, their history, goals, partnerships, and accolades. <br>
 
-## Snyk <!-- MODIFY THIS SUBHEADING -->
+## Snyk
 This paragraph block should be a brief introduction to the partner, their history, goals, partnerships, and accolades. <br>
 
-
-### Next Section: Prerequisites <!-- MODIFY THIS HEADING -->
+## Next Section: Prerequisites <!-- MODIFY THIS HEADING -->
 In the next section, we'll cover prerequisites.
