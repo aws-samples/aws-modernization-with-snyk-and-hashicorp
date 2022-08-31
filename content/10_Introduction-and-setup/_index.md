@@ -8,20 +8,21 @@ weight: 10
 
 ## Learning objectives
 
-This is a hands-on workshop that guides you through a set of examples familiar to the creation and deployment of cloud resources.  We're adding security scanning and fixing to the process as a new example for your workflow to show you that security does not have to be hard.
+This is a hands-on workshop that guides you through a set of examples familiar to the creation and deployment of cloud resources.  We're adding security scans and fixes to the process as something to add to your workflow, illustrating how security does not have to be hard.
 
 Who should take this workshop?
-- Developers
-- DevOps Engineers
-- Solutions Architects
-- Site Reliability Engineers (SREs)
-- Anyone that wants to learn more!
+
+* Developers
+* DevOps Engineers
+* Solutions Architects
+* Site Reliability Engineers (SREs)
+* Anyone that wants to learn more about security!
 
 ## Workshop Structure
 
 In this workshop, we'll perform activities related to the creation and deployment cloud resources managed by Infrastructure as Code.  
 
-We'll scan those resources for vulnerabilities and fix them.  We'll observe exploits of these vulnerabilities in our running environment before and after we fix them.  The outline below summarizes what we'll be covering in this workshop.
+When we scan those resources for vulnerable misconfigurations, we'll also observe exploits in our running environment before and after we fix them.  The outline below summarizes what we'll be covering in this workshop.
 <br>
 
 <ul>
