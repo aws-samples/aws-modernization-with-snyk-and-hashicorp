@@ -28,8 +28,8 @@ When we scan those resources for vulnerable misconfigurations, we'll also observ
 <ul>
     <li> Prerequisites *(15 minutes)* </li>
     <li> Setting up an account for the solution *(15 minutes)* </li>
-    <li> Module 1: Snyk Scanning *(30 minutes)* </li>
-    <li> Module 2: HashiCorp Terraform *(30 minutes)* </li>
+    <li> Module 1: HashiCorp Terraform *(30 minutes)* </li>
+    <li> Module 2: Snyk Scanning *(30 minutes)* </li>
     <li> Module 3: HashiCorp Terraform Cloud *(30 minutes)* </li>
 </ul>
 

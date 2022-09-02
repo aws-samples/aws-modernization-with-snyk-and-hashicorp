@@ -1,5 +1,5 @@
 ---
-title: "Module 2: HashiCorp terraform"
+title: "Module 1: HashiCorp terraform"
 chapter: true
 weight: 50
 ---

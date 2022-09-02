@@ -1,7 +1,7 @@
 ---
 title: "Send Results to Snyk"
 chapter: true
-weight: 43
+weight: 58
 ---
 
 ## Sending results to Snyk
