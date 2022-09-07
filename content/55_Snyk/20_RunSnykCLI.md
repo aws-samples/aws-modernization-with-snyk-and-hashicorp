@@ -13,6 +13,15 @@ cd ~/eks-demo-deployments/terraform/default
 snyk iac test
 ```
 
+OR
+
+```bash
+cd ~/terraform-goof
+snyk iac test
+```
+
+
+
 This process should only take a few seconds, and you will see many lines of output with a summary similar to what is shown below. The net result is no issues detected.  In the example below, our test Snyk Organization is hamed `hashicorp`.
 
 ```bash
@@ -44,6 +53,39 @@ Tip
   New: Share your test results in the Snyk Web UI with the option --report
 
 ```
+
+OR
+
+```
+🐧$ snyk iac test
+
+Snyk Infrastructure as Code
+
+✔ Test completed.
+
+... many lines deleted
+
+-------------------------------------------------------
+
+Test Summary
+
+  Organization: hashicorp
+  Project name: snyk/terraform-goof
+
+✔ Files without issues: 8
+✗ Files with issues: 5
+  Ignored issues: 4
+  Total issues: 28 [ 0 critical, 7 high, 10 medium, 11 low ]
+
+-------------------------------------------------------
+
+Tip
+
+  New: Share your test results in the Snyk Web UI with the option --report
+
+```
+
+
 
 ## Review Results - with context
 

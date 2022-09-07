@@ -14,6 +14,12 @@ git clone https://github.com/adversarialengineering/eks-demo-deployments.git
 cd eks-demo-deployments/terraform/default
 ```
 
+```bash
+cd ~/
+git clone https://github.com/snyk/terraform-goof.git
+cd terraform-goof
+```
+
 In this repository, we'll scan and review the results of the IaC project and make local changes to see how a developer would fix issues at the environment.
 
 You will be asked to make and commit changes to the code in a later module.  We'll provide instructions at that time about creating a fork under your GitHub ID.
