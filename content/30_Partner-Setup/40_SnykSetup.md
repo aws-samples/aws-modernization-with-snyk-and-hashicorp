@@ -13,7 +13,11 @@ Snyk is an open source security platform designed to help software-driven busine
     In the KEY field, select click to show, then select and copy your API token from the field
     Paste the token that appears on the screen in a safe location for use in future modules
 
-Warning: Your Snyk access token must be protected and not shared with unauthorized parties to prevent exposure and unauthorized access.
+{{% notice warning %}}
+<p style='text-align: left;'>
+Your Snyk access token must be protected and not shared with unauthorized parties to prevent exposure and unauthorized access.
+</p>
+{{% /notice %}}
 
 You can read more about Snyk Access Token from their docs here.
 
@@ -73,6 +77,11 @@ The pipeline will package the application into a Docker image. It then pushes th
     Add a description for your token that indicates where the token will be used, or that sets a purpose for the token
     Copy the token that appears on the screen and record it in a safe location for use in future modules. Make sure you do this now! Once you close this prompt, Docker will never show the token again and you will have to create a new one
 
-Warning: Docker Hub credentials and access tokens must be protected and not shared with unauthorized parties to prevent exposure and unauthorized access.
+
+{{% notice warning %}}
+<p style='text-align: left;'>
+Docker Hub credentials and access tokens must be protected and not shared with unauthorized parties to prevent exposure and unauthorized access.
+</p>
+{{% /notice %}}
 
 Now that you have created and safely recorded your new access token, let’s move to the next section and create a new Snyk Access token.
