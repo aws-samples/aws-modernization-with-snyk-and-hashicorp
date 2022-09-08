@@ -1,25 +1,32 @@
 ---
-title: "Send Results to Snyk"
+title: "Sending Results to Snyk"
 chapter: true
-weight: 58
+weight: 54
 ---
 
-## Sending results to Snyk
+# Sending results to Snyk
+More than once you've been directed to run a snyk CLI command, and you may have noticed the text at the end of your CLI results:
 
-At your command prompt, ensure you are authorized with Snyk by issuing the command below.  In the setup steps, you were asked to get the API_TOKEN from snyk.io.  See the [Snyk setup page for those instructions.]({{<ref "30_Partner-Setup/40_SnykSetup.md" >}})
+```bash
+Tip
 
+  New: Share your test results in the Snyk Web UI with the option --report
+```
+Let's send results to Snyk for viewing in the UI.  At your command prompt, ensure you are authorized with Snyk by issuing the command below.  In the setup steps, you were asked to get the API_TOKEN from snyk.io.  See the [Snyk setup page for those instructions.]({{<ref "30_Partner-Setup/40_SnykSetup.md" >}})
 
 ```bash
 snyk auth
 ```
 
-Once you are authorized, we'll re-run the same snyk command from before, with the extra parameter `--report` that sends the results to Snyk.
+Once you are authorized, we'll re-run the same snyk command from before, with the extra parameter `--report` that sends the results to Snyk.  But first, let's undo our github changes because we actually want to see some of the issues we fixed.
 
 ```bash
-$ snyk iac test --report
+git checkout main.tf
+git checkout output.tf
+snyk iac test --report
 ```
 
-You'll see the same type of output as before, plus a little more shown below.  This extra information is the link and the name of the project in Snyk:
+We should see the 3 medium vulnerabilties return, plus a link to Snyk for your web-based results:
 
 ```bash
 Report Complete
