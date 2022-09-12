@@ -10,7 +10,13 @@ weight: 12 # MODIFY THIS VALUE TO REFLECT THE ORDERING OF THE MODULES IF APPLICA
 This paragraph block should be an introduction to the technical issue the solution is facing. An example of this can be seen at the bottom of this page. <br>
 
 ### Infrastructure Security
-**TODO: Let's describe Snyk & HashiCorp**
+
+The migration to cloud has brought an evolution of development behaviors and processes.  This includes the use of Infrastructure as Code (IaC) techniques.  Previously, people would use a web browser interface to configure their infrastructure with many clicks and manual text entry.  IaC allows teams to utilize a Software Development LifeCycle (SDLC) to define and manage their IaC projects much like their typical Application Development.  This includes Git repositories, pull requests, testing, and peer development.  However, this brings yet another set of tools and processes for people to master because it requires knowledge of a new language.
+
+In the interest of delivering infrastructure quickly and efficiently, people are apt to deliver infrastructure that works for their problem but it is often at the expense of their security.  Getting things to work may also mean using more permissive policies and permissions, or to utilize defaults that should be overridden with more targeted options.  Given how few people are experts in all the details of infrastructure definition, people rely on online examples that showcase the basics so there is minimal help from online forums for how we should *really* do infrastructure securely.  The net result is that security misconfigurations are the top source of security issues in infrastructure.
+
+Rather than dive deep into all aspects of infrastructure security, teams strongly prefer to utilize smart guidance provided by their tooling.  Then the guidance is good, it is a type of "easy button," because somebody else has figured out the best practice and we can leverage that information to get back to developing our applications.
+
 ### Infrastructure as Code
 **TODO: Let's describe Snyk & HashiCorp**
 
