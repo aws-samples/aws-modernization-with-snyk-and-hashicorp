@@ -12,7 +12,7 @@ Tip
 
   New: Share your test results in the Snyk Web UI with the option --report
 ```
-Let's send results to Snyk for viewing in the UI.  At your command prompt, ensure you are authorized with Snyk by issuing the command below.  In the setup steps, you were asked to get the API_TOKEN from snyk.io.  See the [Snyk setup page for those instructions.]({{<ref "30_Partner-Setup/40_SnykSetup.md" >}})
+Let's send results to Snyk for viewing in the UI.  At your command prompt, ensure you are authorized with Snyk by issuing the command below.  In the setup steps, you were asked to get the API_TOKEN from snyk.io.  See the [Snyk setup page for those instructions.]({{<ref "30_Partner-Setup/33_SnykSetup.md" >}})
 
 ```bash
 snyk auth

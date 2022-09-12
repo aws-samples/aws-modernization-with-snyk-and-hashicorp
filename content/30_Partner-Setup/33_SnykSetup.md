@@ -1,7 +1,7 @@
 ---
-title: "Snyk Setup Instructions"
+title: "Snyk CLI"
 chapter: true
-weight: 40
+weight: 33
 ---
 
 # Snyk Setup Instructions
@@ -60,28 +60,3 @@ That should be it!  Your response should look like the following:
 
 ### Next Section: Running with Snyk
 Now that you have setup Snyk and the CLI, you are ready to start your workshop.
-
-
-### Docker Hub <!-- MODIFY THIS HEADING -->
-
-Docker Hub is a service provided by Docker for finding and sharing container images with your team. It is the world’s largest repository of container images with an array of content sources including container community developers, open source projects and independent software vendors (ISV) building and distributing their code in containers.
-
-
-### Create a Docker Hub Access Token <!-- MODIFY THIS HEADING -->
-
-The pipeline will package the application into a Docker image. It then pushes that image a public Docker Hub image repository so that it will be available to the deployment segment of the pipeline. To push or upload the newly-built Docker image, the pipeline will need an access token to authorize transaction on your Docker Hub account. You will need to create a new access token (https://docs.docker.com/docker-hub/access-tokens/) and store it for use in later modules. To create your new access tokens:
-
-    Log in to hub.docker.com
-    Click your username in the top right corner and select Account Settings
-    Select Security > New Access Token.
-    Add a description for your token that indicates where the token will be used, or that sets a purpose for the token
-    Copy the token that appears on the screen and record it in a safe location for use in future modules. Make sure you do this now! Once you close this prompt, Docker will never show the token again and you will have to create a new one
-
-
-{{% notice warning %}}
-<p style='text-align: left;'>
-Docker Hub credentials and access tokens must be protected and not shared with unauthorized parties to prevent exposure and unauthorized access.
-</p>
-{{% /notice %}}
-
-Now that you have created and safely recorded your new access token, let’s move to the next section and create a new Snyk Access token.
