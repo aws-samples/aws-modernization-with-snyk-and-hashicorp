@@ -25,13 +25,9 @@ In this workshop, we'll perform activities related to the creation and deploymen
 When we scan those resources for vulnerable misconfigurations, we'll also observe exploits in our running environment before and after we fix them.  The outline below summarizes what we'll be covering in this workshop.
 <br>
 
-<ul>
-    <li> Prerequisites *(15 minutes)* </li>
-    <li> Setting up an account for the solution *(15 minutes)* </li>
-    <li> Module 1: HashiCorp Terraform *(30 minutes)* </li>
-    <li> Module 2: Snyk Scanning *(30 minutes)* </li>
-    <li> Module 3: HashiCorp Terraform Cloud *(30 minutes)* </li>
-</ul>
+- Prerequisites **(15 minutes)**
+- Module 1: Snyk Scanning plus Terraform **(30 minutes)**
+- Module 2: HashiCorp Terraform Cloud plus Snyk Run Tasks **(30 minutes)**
 
 {{% notice warning %}}
 The examples and sample code provided in this workshop are intended to be consumed as instructional content. These will help you understand how various AWS services can be architected to build a solution while demonstrating best practices along the way. These examples are not intended for use in production environments.

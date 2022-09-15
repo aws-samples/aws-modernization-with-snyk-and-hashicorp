@@ -8,15 +8,12 @@ weight: 30
 
 ## Introduction <!-- MODIFY THIS SUBHEADING -->
 
-This workshop uses services that require you to create an account or download CLI utilities.  We introduce those activities here.
-
-### Accounts  <!-- MODIFY THIS SUBHEADING -->
-You will need accounts for the following services:
+This workshop uses services that require you to create an account or download CLI utilities.  You will need accounts for the following services:
 
 1. HashiCorp Terraform Cloud
 1. Snyk
 
-You will need to install the CLI components for the following:
+You will also need CLI components for the following:
 
 1. HashiCorp terraform
 1. Snyk CLI

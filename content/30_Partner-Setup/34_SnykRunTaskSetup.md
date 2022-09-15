@@ -54,4 +54,3 @@ When you are finished, your will see your new run tasks added to a list of avail
 
 ### Next Section: Running with Snyk
 Now that you have setup Snyk and the CLI, you are ready to start your workshop.
-

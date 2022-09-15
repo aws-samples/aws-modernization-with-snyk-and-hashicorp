@@ -1,28 +1,14 @@
 ---
-title: "Workshop Next Steps" # MODIFY THIS TITLE TO REFLECT NEXT STEPS IF APPLICABLE
+title: "Workshop Next Steps"
 chapter: true
-weight: 15 # MODIFY THIS VALUE TO REFLECT THE ORDERING OF THE MODULES IF APPLICABLE
+weight: 15 
 ---
 
 
-# Workshop Next Steps <!-- MODIFY THIS HEADING IF APPLICABLE -->
-## TODO: Update this page
+# Workshop Next Steps 
 
-## Submodule Five Heading <!-- MODIFY THIS SUBHEADING -->
+In the next sections, we'll configure tooling on your local environment.  The workshop is designed to run with a newly provisioned environment that does not include tooling.  The setup process for these clean environments is quick, and meant to ensure the entire workshop cohort starts with the same tooling and versions.  If you run from your own environment, you may already have these tools configured.
 
-This paragraph block should be an brief explanation of the next steps to take after the prerequisites have been set up. Diagrams or code samples can be shown to give a visual explanation of what will be taking place during the building of the solution. An example of content guidance can be found at the bottom of this page.
-
-### Next Section Heading <!-- MODIFY THIS HEADING -->
-This paragraph block can optionally be utilized to lead into the next section of the workshop.
-
-#### Example of content guidance
-
-# Configuring Your Solution
-
-While working through the workshop modules, you will progressively build a 3-tier web application by utilizing core AWS services. We will provide you with any code examples and any directions specific to the set up approach we will be utilizing. <br>
-
-![Architecture Diagram](/images/3-tier-web-app.png)
-
-{{% notice %}}
+{{% notice info %}}
 Some of these may be skipped if you already have the required accounts and tools.
 {{% /notice %}}

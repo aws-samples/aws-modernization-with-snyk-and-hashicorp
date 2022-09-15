@@ -5,13 +5,20 @@ weight: 33
 ---
 
 # Snyk Setup Instructions
-Snyk is an open source security platform designed to help software-driven businesses enhance developer security. Snyk’s dependency scanner makes it the only solution that seamlessly and proactively finds, prioritizes, and fixes vulnerabilities and license violations in open source dependencies and container images.
+You will need a Snyk account to run scans.  Snyk is available for free and all you need is a valid email address to register.  Once you register, you can perform scans and view results locally or on the website.
 
-## Create Snyk Access Token
+## Setting up your Snyk Account
 
-    Visit your Snyk account (Account Settings > API Token section) (https://app.snyk.io/account)
-    In the KEY field, select click to show, then select and copy your API token from the field
-    Paste the token that appears on the screen in a safe location for use in future modules
+### I do not have a Snyk account
+[You can register for a FREE account here.](https://app.snyk.io/signup/?utm_medium=Partner&utm_source=Atlassian&utm_campaign=Bitbucket-cloud-promo-Q1-2020)
+
+### I already have a Snyk account
+[Log in to your account here.](https://app.snyk.io/signup/?utm_medium=Partner&utm_source=Atlassian&utm_campaign=Bitbucket-cloud-promo-Q1-2020)
+
+### Create Snyk Access Token
+- Visit your Snyk account (Account Settings > API Token section) (https://app.snyk.io/account)
+- In the KEY field, select click to show, then select and copy your API token from the field
+- Paste the token that appears on the screen in a safe location for use in future modules
 
 {{% notice warning %}}
 <p style='text-align: left;'>
@@ -21,10 +28,7 @@ Your Snyk access token must be protected and not shared with unauthorized partie
 
 You can read more about Snyk Access Token from their docs here.
 
-Great, you have created and safely stored your newly created Snyk access token, Now, let’s create the Terraform Cloud access token.
-
-
-## Snyk CLI
+## Setting up the Snyk CLI
 
 The Snyk Command-Line-Interface (CLI) is highly portable and very popular with end users.  We’ll use the Snyk CLI in this workshop to collect and send results about your vulnerabilities.
 
@@ -45,10 +49,12 @@ Next, authenticate with Snyk by typing in the command below:
 snyk auth
 ```
 
-When you run that command, you’ll be directed to authenticate in a browser.  If your environment does not bring up a web browser, you can instead get your authorization token from the Snyk UI.
-You get your API_TOKEN by clicking into your Snyk Account (https://app.snyk.io/account), by clicking through the Account Settings -> API Token section.
+This command directs you to authenticate in a browser.  If your environment does not bring up a web browser, you can instead get your authorization token from the Snyk UI.
+
+Navigate to your Snyk Account (https://app.snyk.io/account), and get your API_TOKEN by clicking into your Account Settings -> API Token section.
 In the KEY field, click your “click to show” box to copy your API token.
-Finally, run this command where API_TOKEN is the value you copied.
+
+You can then run this command where API_TOKEN is the value you copied.
 
 ```
 snyk auth API_TOKEN.
@@ -56,7 +62,10 @@ snyk auth API_TOKEN.
 
 That should be it!  Your response should look like the following:
 
-**TODO: Show a screenshot of the operation**
+    snyk auth 12345678-abcd-efgh-1234head5678bead
+
+    Your account has been authenticated. Snyk is now ready to be used.
+
 
 ### Next Section: Running with Snyk
-Now that you have setup Snyk and the CLI, you are ready to start your workshop.
+Great, you have created and safely stored your newly created Snyk access token, Now, let’s create the Terraform Cloud access token.
