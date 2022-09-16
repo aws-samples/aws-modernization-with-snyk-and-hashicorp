@@ -10,21 +10,6 @@ weight: 2 # MODIFY THIS VALUE TO REFLECT THE ORDERING OF THE MODULES
 
 # Set Up The Workspace <!-- MODIFY THIS SUBHEADING -->
 
-## Submodule Two Heading <!-- MODIFY THIS SUBHEADING -->
-
-This paragraph block can be used to explain how to create a workspace if necessary. Example content guidance can be found at the bottom of the page.
-
-{{% notice info %}}
-<p style='text-align: left;'>
-**REMOVE:** With the exception of _index.md, the module folders and filenames should be changed to better reflect their content, i.e. 1_Planning as the folder and 11_HowToBegin as the first submodule. Changing the "weight" value of the header is ultimately what reflects the order the modules are presented.
-</p>
-{{% /notice %}}
-
-### Next Section Heading <!-- MODIFY THIS HEADING -->
-This paragraph block can optionally be utilized to lead into the next section of the workshop.
-
-#### Example Content Guidance
-
 # Set Up Your Workspace
 AWS Cloud9 is a cloud-based integrated development environment (IDE) that lets you write, run, and debug your code with just a browser. It includes a code editor, debugger, and terminal. Cloud9 comes prepackaged with essential tools for popular programming languages, including JavaScript, Python, PHP, and more, so you don’t need to install files or configure your laptop for this workshop.
 
@@ -66,3 +51,7 @@ When the environment comes up, customize the environment by:
 Tip: If you don’t like this dark theme, you can change it from the View / Themes Cloud9 workspace menu.
 
 Tip: Cloud9 requires third-party-cookies. You can whitelist the specific domains. You are having issues with this, Ad blockers, javascript disabler, and tracking blockers should be disabled for the cloud9 domain, or connecting to the workspace might be impacted.
+
+### Next Section Heading <!-- MODIFY THIS HEADING -->
+This paragraph block can optionally be utilized to lead into the next section of the workshop.
+

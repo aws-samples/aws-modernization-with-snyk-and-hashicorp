@@ -4,36 +4,20 @@ chapter: true
 weight: 12 # MODIFY THIS VALUE TO REFLECT THE ORDERING OF THE MODULES IF APPLICABLE
 ---
 
-# Technical Issue / Problem <!-- MODIFY THIS HEADING TO REFLECT THE PROBLEM THE WORKSHOP IS ADDRESSING -->
+# The technical hurdles to managing infrastructure 
+In this section, we provide context for Infrastructure as Code and additional security requirements.
 
-## The technical hurdles to managing infrastructure <!-- MODIFY THIS SUBHEADING -->
-This paragraph block should be an introduction to the technical issue the solution is facing. An example of this can be seen at the bottom of this page. <br>
+## Infrastructure as Code
+The migration to cloud has brought an evolution of development behaviors and processes.  Previously, people would use a web browser interface to configure their infrastructure with many clicks and manual text entry.  With maturity, Infrastructure as Code (IaC) is the logical next phase in the evolution.  IaC allows teams to define their infrastructure with code and this leads to treating your infrastructure like a software project.  This includes utilizing a Software Development LifeCycle (SDLC) to the development phases and the familiarity of Git repositories, pull requests, testing, and peer development.  Overall, IaC is a significant advantage for development teams.
 
-{{% notice info %}}
-<p style='text-align: left;'>
-**REMOVE:** With the exception of _index.md, the module folders and filenames should be changed to better reflect their content, i.e. 1_Planning as the folder and 11_HowToBegin as the first submodule. Changing the "weight" value of the header is ultimately what reflects the order the modules are presented.
-</p>
-{{% /notice %}}
+## Infrastructure Security
+Security misconfigurations are the top source of security issues in infrastructure.
 
-### Next Section: Who we are <!-- MODIFY THIS HEADING -->
-**TODO: Let's describe Snyk & HashiCorp**
+IaC saves teams from unmanaged button clicks and related time-consuming tasks, but there still is an increase of work for already busy teams.  For many teams, IaC is a new discipline with new languages, tools, and processes.  Most teams are ramping up in their knowledge whilie focusing on delivering infrastructure quickly and efficiently.  The priority is often about delivering infrastructure and people focus their study on ensuring their deployments work.  Security suffers primarily because the outputs are not easy to see.  After all, we're highly motivated to ensure application traffic is solid, and we're not usually testing the boundaries of security.  Furthermore, some default settings are more permissive than required or our teams choose to create permissive infrastructure in the interest of getting things to work.
 
-**TODO: Delete below this line.**
-#### Example of content guidance
+Consider how many people search online for examples to help them solve an infrastructure problem.  Nearly all examples show the essentials of how to get something work and defer on enhanced features.  Many examples even state how it is incumbent on you to ensure production-ready or secure deployments.  Very few examples exist to show you well-secured infrastructure.
 
-# Deploy Without Worry
+Development teams strongly prefer to use tooling that includes expert guidance and Easy Buttons such as automatic code completion in an IDE.  IaC security is now available to developers as an Easy Button.
 
-## Deployments with Kubernetes?
-
-Kubernetes (k8s) is a container orchestration platform allowing organizations to scale their services and workloads quickly. If you are working with containers or microservices, k8s may be a great use case for you. Kubenetes deployments are container image deployments which target k8s-based environments.
-
-Amazon has released a managed k8s service called Elastic Kubernetes Service (EKS). Amazon EKS helps you provide highly-available and secure clusters and automates key tasks such as patching, node provisioning, and updates. While AWS provides the platform on which to run your containerize applications deploying them in a scalable, repeatable and reliable way is where Harness comes in.
-
-
-## How does Harness help with EKS deployments?
-
-Harness has first-class support for Kubernetes Resources. Harness can create scaffolding around Kubernetes Resources removing complexities around crafting your own resource definitions that are purpose made for deployments. Harness can offer granular deployment lifecycle support around different Kubernetes Resources supporting canary and blue/green deployments inside Kubernetes.
-
-## Why is Canary deployment tricky with EKS deployments?
-
-Canary Deployments are a progressive delivery pattern for rolling out releases to a subset of users. Canary Deployments can be complex because of the multiple phases and the judgment call of when to promote or rollback a canary. The Harness Platform has smart verification taking away the manual toil in verification and enables seamless Canary Deployments.
+## Next: The Technical Problem
+In the next section, we provide an overview of HashiCorp and Snyk and how they help people with their Infrastructure As Code projects plus Security.

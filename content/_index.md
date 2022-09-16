@@ -7,12 +7,12 @@ weight: 1
 # Snyk and HashiCorp securing your Infrastructure as Code
 <br>
 ![Snyk Logo](/images/snyk-card.png?width=300px)
-![HashiCorp Logo](/images/snyk-card.png?width=300px)  <!-- TODO: ADD YOUR PARTNER LOGO HERE USING THE INSTRUCTIONS BELOW.  Note I resized the Snyk image above -->
+![HashiCorp Logo](/images/HashiCorp_Logo.png?width=300px)  <!-- TODO: ADD YOUR PARTNER LOGO HERE USING THE INSTRUCTIONS BELOW.  Note I resized the Snyk image above -->
 <br>
 
 ## Welcome
 Welcome!
-In this workshop, you will learn how to scan and deploy an infrastructure-as-code (IaC) project to Amazon services using CLI operations for Snyk and HashiCorp terraform.  We will learn about IaC and application vulnerabilities.
+In this workshop, you will scan and deploy an infrastructure-as-code (IaC) project to Amazon services using Snyk and HashiCorp terraform.  We'll use the CLI and web interfaces for these solutions to identify and fix issues.
 
 ## HashiCorp
 HashiCorp enables organizations to deliver applications faster with a software stack offering consistent workflows to provision, secure, connect, and run any infrastructure for any application.

@@ -14,5 +14,5 @@ In the next page, we'll focus on the technical problems.
 - Security is often seen as hard, not timely
 - Infrastructure is new, people "don't know what they don't know", doing it by hand, etc.
 
-### Next: The Technical Problem <!-- TODO: MODIFY the body -->
+## Next: The Technical Problem <!-- TODO: MODIFY the body -->
 In the next section, we describe the technical hurdles to doing infrastructure without security.
