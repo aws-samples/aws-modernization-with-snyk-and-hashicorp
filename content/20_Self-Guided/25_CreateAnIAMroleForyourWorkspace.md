@@ -1,7 +1,7 @@
 ---
 title: "Create an IAM Role for your workspace"
 chapter: true
-weight: 3 # MODIFY THIS VALUE TO REFLECT THE ORDERING OF THE MODULES
+weight: 25 # MODIFY THIS VALUE TO REFLECT THE ORDERING OF THE MODULES
 ---
 
 ### Create an IAM Role for your workspace <!-- MODIFY THIS SUBHEADING -->

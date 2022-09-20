@@ -1,7 +1,7 @@
 ---
 title: "Attach IAM Role" # MODIFY THIS TITLE
 chapter: true
-weight: 4 # MODIFY THIS VALUE TO REFLECT THE ORDERING OF THE MODULES
+weight: 26 # MODIFY THIS VALUE TO REFLECT THE ORDERING OF THE MODULES
 ---
 
 # Attaching an IAM Role

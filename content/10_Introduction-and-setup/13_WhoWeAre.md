@@ -15,4 +15,4 @@ Snyk is the leader in developer security. We empower the world's developers to b
 Snyk is recognized on the [Forbes Cloud 100 2021](https://c212.net/c/link/?t=0&l=en&o=3284913-1&h=4228673096&u=https%3A%2F%2Fwww.forbes.com%2Fcloud100%2F%231919c9ce5f94&a=Forbes+Cloud+100+2021), the [2021 CNBC Disruptor 50](https://c212.net/c/link/?t=0&l=en&o=3284913-1&h=1332762136&u=https%3A%2F%2Fwww.cnbc.com%2F2021%2F05%2F25%2Fthese-are-the-2021-cnbc-disruptor-50-companies.html&a=2021+CNBC+Disruptor+50) and was named a Visionary in the [2021 Gartner Magic Quadrant for AST](https://c212.net/c/link/?t=0&l=en&o=3284913-1&h=66430650&u=https%3A%2F%2Fsnyk.io%2Fblog%2Fsnyk-visionary-2021-gartner-magic-quadrant-for-ast%2F&a=%C2%A02021+Gartner+Magic+Quadrant+for+AST).
 
 ## Next Section: Prerequisites
-In the next section, we'll cover prerequisites.
+In the next section, we'll cover prerequisites for the workshop.

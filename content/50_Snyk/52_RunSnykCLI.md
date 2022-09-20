@@ -9,7 +9,7 @@ weight: 52
 At your command prompt, run this command at the base directory of your repository you checked out.
 
 ```bash
-cd ~/cd vulnerable-ec2
+cd ~/environment/vulnerable-ec2
 snyk iac test
 ```
 
@@ -92,7 +92,7 @@ When you examine the entire output, you'll see several pieces of useful informat
 
 In this example, we have several issues that have a severity of Low or Medium, which is good for this workshop.  The focus will be on the three Medium issues.
 
-The first one is about your AWS Security Group allowing open ingress, or being open to the entire internet.  That is because the CIDR block access is specified as `0.0.0.0/0` for SSH access.  Typically this is not a good practice, so let's review the file entitled `main.tf` to address the issue.  Open the file in your editor and navigate to the section shown below.
+The first one is about your AWS Security Group allowing open ingress, or being open to the internet.  That is because the CIDR block access is specified as `0.0.0.0/0` for SSH access.  Typically this is not a good practice, so let's review the file entitled `main.tf` to address the issue.  Open the file in your editor and navigate to the section shown below.
 
 ```terraform
 resource "aws_security_group" "allow_ssh_from_anywhere" {
@@ -111,9 +111,39 @@ resource "aws_security_group" "allow_ssh_from_anywhere" {
   }
 ```
 
-Let's provision this instance to show how the application is misconfigured to permit access from the entire internet.
+Let's provision this instance to show how the application is misconfigured to permit access from the internet.
 
+TODO: We need to add the AWS Keys 
+*Previously, we configured an AWS KEY.  We'll need those details to ensure the next parts work.
+I assume keys are required for terraform.  Also, we have to evaluate how the settings within Cloud9 for *AWS managed temporary credentials* works for us.
+
+
+
+
+```bash
+aws_security_group.allow_port_80_from_anywhere: Creating...
+╷
+│ Error: creating Security Group (allow_ssh_from_anywhere): VPCIdNotSpecified: No default VPC for this user
+│       status code: 400, request id: cdf2f4d5-c0dc-4683-b123-dae5b002351c
+│ 
+│   with aws_security_group.allow_ssh_from_anywhere,
+│   on main.tf line 16, in resource "aws_security_group" "allow_ssh_from_anywhere":
+│   16: resource "aws_security_group" "allow_ssh_from_anywhere" {
+│ 
+╵
+╷
+│ Error: creating Security Group (allow_port_80_from_anywhere): VPCIdNotSpecified: No default VPC for this user
+│       status code: 400, request id: fdf22495-df5d-4c20-aa3a-d222c2756f99
+│ 
+│   with aws_security_group.allow_port_80_from_anywhere,
+│   on main.tf line 44, in resource "aws_security_group" "allow_port_80_from_anywhere":
+│   44: resource "aws_security_group" "allow_port_80_from_anywhere" {
+│ 
+╵
 ```
+
+
+```bash
 terraform init
 terraform plan
 terraform apply

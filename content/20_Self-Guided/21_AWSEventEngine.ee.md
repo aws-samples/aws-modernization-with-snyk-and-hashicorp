@@ -1,30 +1,27 @@
 ---
-title: "AWS Event Engine" # MODIFY THIS TITLE
+title: "Setting up your AWS keys"
 chapter: true
-weight: 1 # MODIFY THIS VALUE TO REFLECT THE ORDERING OF THE MODULES
+weight: 22 # MODIFY THIS VALUE TO REFLECT THE ORDERING OF THE MODULES
 ---
 
-<!-- MORE SUBMODULES CAN BE ADDED TO DIVIDE UP THE SETUP INTO SMALLER SECTIONS -->
-<!-- COPY AND PASTE THIS SUBMODULE FILE, RENAME, AND CHANGE THE CONTENTS AS NECESSARY -->
+# Setting up your AWS account <!-- MODIFY THIS HEADING -->
 
+If you don’t already have an AWS account with Administrator access: create one now by clicking <a href="https://aws.amazon.com/getting-started/">here</a>.
 
-### AWS Event Engine <!-- MODIFY THIS HEADING -->
+Once you have an AWS account, ensure you are following the remaining workshop steps as an IAM user with administrator access to the AWS account: <a href="https://console.aws.amazon.com/iam/home?#/users$new">Create a new IAM user to use for the workshop</a>
 
-### Attending an AWS hosted event <!-- MODIFY THIS HEADING -->
-To complete this workshop, you will be provided with an AWS account via the AWS Event Engine service. The AWS staff will send an Event Engine dashboard link with a hash parameter, please follow the below instructions on how to get access into your account.
+Enter the user details: create user
+![aws-add-user-1](/images/aws-add-user-1.png)
 
-If you are currently logged in to an AWS Account, you can log out using this link (https://aws.amazon.com/console/)
+Attach the AdministratorAccess IAM Policy: attach policy
+![aws-add-user-2](/images/aws-add-user-2.png)
 
-### Logging into Event Engine Dashboard <!-- MODIFY THIS HEADING -->
+Skip the part to add tags.  Click to create the new user: finish creation
+![aws-add-user-3](/images/aws-add-user-3.png)
 
+Take note of the login URL and save: login url
+![aws-add-user-4](/images/aws-add-user-4.png)
 
-    Click on the link that the AWS staff has given you, it should look something like this: https://dashboard.eventengine.run/login?hash=s0m3-r4nd0mh4shval-ue. You should land on this page: Event Engine Sign In
-    Click the Email One-Time Password option and enter your email address. You’ll wait 2-3 minutes for an email with the confirmation code. Please enter the confirmation code.
-    Your page should look like this: EE Successful OTP Sign In
-    You should now be on the Event Engine dashboard: Event Engine Dashboard
-    Select the AWS Console button. Click the Open AWS Console to be sent to your AWS Dashboard. Access key
+### Next Section: Creating AWS Keys
+In the next sectio, you will create AWS keys to allow Terraform to deply to AWS on your behalf.
 
-    This popup also includes the AWS Access Key and AWS Secret Access Key that you’ll need to add to your CircleCI’s environment variable later on in the workshop!
-    Make sure you’re in the us-east-1 region. Please select US East (N.Virginia) in the top right corner. Event Engine Region
-
-Warning: This account will expire at the end of the workshop and all the resources created will be automatically de-provisioned. You will not be able to access this account after today.

@@ -13,6 +13,7 @@ Here is a preview of what we will be setting up:
 
 <ol>
     <li>Creating an AWS account with proper permissions</li>
+    <li>Setting up AWS keys</li>
     <li>Create a workspace</li>
     <li>Creating an IAM role for your workspace</li>
     <li>Attaching an IAM Role</li>
