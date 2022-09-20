@@ -180,7 +180,8 @@ Warning: Permanently added '3.238.195.45' (ED25519) to the list of known hosts.
 ec2-user@3.238.195.45: Permission denied (publickey,gssapi-keyex,gssapi-with-mic).
 ```
 
-Similiarly, run the following curl command to see how anybody can access your hosted application:
+Similiarly, run the following curl command to see how anybody can access your hosted application.  Remember, your instance has to be in the Running state in order to be able to provide a response to the curl command.  
+
 
 ```bash
 curl http://3.238.195.45
@@ -196,5 +197,5 @@ In order to address these issues, we'll destroy the instance because we'll be ma
 terraform destroy
 ```
 
-## Next: Fixing IaC issues <!-- TODO: MODIFY the body -->
+## Next: Fixing IaC issues 
 Now that your EC2 instance is destroyed, we can address the issues starting in the next section.

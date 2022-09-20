@@ -21,7 +21,7 @@ git clone https://github.com/adversarialengineering/eks-demo-deployments.git
 cd eks-demo-deployments/terraform/default
 ```
 
-## Run `snyk iac` without context
+## Run `snyk iac test` without context
 
 Change into the working directory and run snyk iac to get the first set of results.  The example below contains the entire output.
 
@@ -109,7 +109,7 @@ Test Summary
 
 At this point, we now include many more files to find 1 High and several Medium and Low issues.  If we look closely at the High, we'll notice the issue is focused on the definition of the VPC.  Let's compare the results with a hardened example.
 
-## Run 'snyk iac` in a hardended environment
+## Run `snyk iac test` in a hardended environment
 
 Run this commands to navigate to the hardened example:
 
@@ -161,7 +161,7 @@ snyk iac test
 
 
 
-## Private
+## TODO Notes
 
 ```bash
 snyk iac test

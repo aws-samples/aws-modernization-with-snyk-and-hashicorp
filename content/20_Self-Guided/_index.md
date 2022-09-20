@@ -5,9 +5,7 @@ weight: 20
 ---
 
 # Self-Guided Workshop Setup
-Welcome to the Self Guided Setup section! This workshop requires an AWS account where there is IAM user/identity that has proper permissions to set up the necessary AWS components to work through the workshop. Worried about costs associated with this workshop? Don’t worry, go to the next page and request some AWS credits to pay for any costs that may be incurred through this workshop!
-
-**TODO: Confirm if credits are available or if we should remove the notification.**
+Welcome to the Self Guided Setup section! This workshop requires an AWS account where there is IAM user/identity that has proper permissions to set up the necessary AWS components to work through the workshop.
 
 Here is a preview of what we will be setting up:
 
@@ -15,8 +13,8 @@ Here is a preview of what we will be setting up:
     <li>Creating an AWS account with proper permissions</li>
     <li>Setting up AWS keys</li>
     <li>Create a workspace</li>
-    <li>Creating an IAM role for your workspace</li>
-    <li>Attaching an IAM Role</li>
+    <li>TBC: Creating an IAM role for your workspace</li>
+    <li>TBC: Attaching an IAM Role</li>
     <li>Configure Workshop Specific Requirements</li>
 </ol>
 
@@ -26,5 +24,3 @@ The examples and sample code provided in this workshop are intended to be consum
 
 ### Next Section Heading
 Next we'll decribe how you configure your environment.
-
-
