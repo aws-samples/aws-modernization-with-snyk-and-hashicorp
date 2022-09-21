@@ -1,10 +1,10 @@
 ---
-title: "Self-Guided Setup Instructions"
+title: "Setting up your AWS account"
 chapter: true
-weight: 21 # MODIFY THIS VALUE TO REFLECT THE ORDERING OF THE MODULES
+weight: 21
 ---
 
-# Setting up your AWS account <!-- MODIFY THIS HEADING -->
+# Setting up your AWS account
 
 If you don’t already have an AWS account with Administrator access: create one now by clicking <a href="https://aws.amazon.com/getting-started/">here</a>.
 

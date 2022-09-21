@@ -13,8 +13,8 @@ Here is a preview of what we will be setting up:
     <li>Creating an AWS account with proper permissions</li>
     <li>Setting up AWS keys</li>
     <li>Create a workspace</li>
-    <li>TBC: Creating an IAM role for your workspace</li>
-    <li>TBC: Attaching an IAM Role</li>
+    <li>Creating an IAM role for your workspace</li>
+    <li>Attaching an IAM Role</li>
     <li>Configure Workshop Specific Requirements</li>
 </ol>
 

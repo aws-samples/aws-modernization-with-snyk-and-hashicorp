@@ -1,14 +1,8 @@
 ---
-title: "Create a Workspace" # MODIFY THIS TITLE
+title: "Create a Workspace"
 chapter: true
-weight: 24 # MODIFY THIS VALUE TO REFLECT THE ORDERING OF THE MODULES
+weight: 24
 ---
-
-<!-- MORE SUBMODULES CAN BE ADDED TO DIVIDE UP THE SETUP INTO SMALLER SECTIONS -->
-<!-- COPY AND PASTE THIS SUBMODULE FILE, RENAME, AND CHANGE THE CONTENTS AS NECESSARY -->
-
-
-# Set Up The Workspace <!-- MODIFY THIS SUBHEADING -->
 
 # Set Up Your Workspace
 AWS Cloud9 is a cloud-based integrated development environment (IDE) that lets you write, run, and debug your code with just a browser. It includes a code editor, debugger, and terminal. Cloud9 comes prepackaged with essential tools for popular programming languages, including JavaScript, Python, PHP, and more, so you don’t need to install files or configure your laptop for this workshop.
@@ -21,7 +15,7 @@ We will use Amazon Cloud9 to access our AWS accounts via the AWS CLI in this Wor
 1. Configure workshop specific requirements
 
 
-### Create a new Cloud9 IDE environment <!-- MODIFY THIS SUBHEADING -->
+### Create a new Cloud9 IDE environment
 Within the AWS console, use the region drop list to select us-east-1 (N. Virginia). This will ensure the workshop script provisions the resources in this same region.
 
 Navigate to the Cloud9 console or just search for it under the AWS console services menu.

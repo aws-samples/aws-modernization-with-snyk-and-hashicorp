@@ -1,5 +1,5 @@
 ---
-title: "Module 3: HashiCorp Terraform Cloud"
+title: "Module 2: HashiCorp Terraform Cloud"
 chapter: true
 weight: 60
 ---
