@@ -1,18 +1,41 @@
 ---
 title: "Create an IAM Role for your workspace"
 chapter: true
-weight: 25 # MODIFY THIS VALUE TO REFLECT THE ORDERING OF THE MODULES
+weight: 25
 ---
 
-### Create an IAM Role for your workspace <!-- MODIFY THIS SUBHEADING -->
+# Create an IAM Role for your workspace
 
-Info: Starting from here, when you see command to be entered such as below, you will enter these commands into Cloud9 IDE. You can use the Copy to clipboard feature (right hand upper corner) to simply copy and paste into Cloud9. In order to paste, you can use Ctrl + V for Windows or Command + V for Mac.
+You will need to assign an IAM Role to your Cloud9 instance for Administrative operations.  This section walks you through those steps.
 
-    Follow this deep link to create an IAM role with Administrator access.
-    Confirm that AWS service and EC2 are selected, then click Next to view permissions.
-    Confirm that AdministratorAccess is checked, then click Next to review.
-    Enter CircleCI-Workshop-Admin for the Name, and select Create Role createrole
+## Select the service
+Follow [this link](https://us-east-1.console.aws.amazon.com/iamv2/home?region=us-east-1#/roles/create) to create an IAM role with administrator access.
 
-### Next Section Heading <!-- MODIFY THIS HEADING -->
-This paragraph block can optionally be utilized to lead into the next section of the workshop.
+1. Click on AWS Service
+1. Select the EC2 use case
+1. Click on the Next button
 
+![aws-iam-role-step-1](/images/aws-iam-role-1.png)
+
+## Add permissions
+
+Next, add the AdministratorAccess permissions policy.
+
+2. Search for `AdministratorAccess` to filter results
+2. Check the box for AdministratorAccess
+2. Click on Next
+
+![aws-iam-role-step-2](/images/aws-iam-role-2.png)
+
+## Name, review, and create
+
+3. Name your policy `hs-workshop-cloud9`
+3. Click on Create role
+
+NOTE: in your environment, you would enter a description and tags per your company guidelines.
+
+![aws-iam-role-step-3](/images/aws-iam-role-3.png)
+
+
+### Next Section: Attach IAM Role
+Now that we've created our IAM Role, we can attach it in our next section.

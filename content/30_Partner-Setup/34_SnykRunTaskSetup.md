@@ -52,5 +52,5 @@ When you are finished, your screen will look similar to what is shown below with
 
 When you are finished, your will see your new run tasks added to a list of available tasks.  You are ready to use the Snyk Run Task in Terraform Cloud.
 
-### Next Section: Running with Snyk
+### Next Section: Running the Workshop
 Now that you have setup Snyk and the CLI, you are ready to start your workshop.

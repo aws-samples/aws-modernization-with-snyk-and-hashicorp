@@ -1,22 +1,30 @@
 ---
-title: "Attach IAM Role" # MODIFY THIS TITLE
+title: "Attach IAM Role"
 chapter: true
-weight: 26 # MODIFY THIS VALUE TO REFLECT THE ORDERING OF THE MODULES
+weight: 26
 ---
 
 # Attaching an IAM Role
 
-### Attach the IAM role to your instance <!-- MODIFY THIS SUBHEADING -->
-Will need
+In this section we attach the IAM role to grant your EC2 instance permission to create resources.
 
-    Follow this deep link to find your Cloud9 EC2 instance
-    (https://console.aws.amazon.com/ec2/v2/home?region=us-east-1#Instances:search=aws-cloud9-circleci-workshop;sort=desc:launchTime)
+## Attach the IAM role to your instance
+Follow [this link](https://console.aws.amazon.com/ec2/v2/home?region=us-east-1#Instances:search=hs-workshop;sort=desc:launchTime) to find your Cloud9 EC2 instance.
 
-    Select the instance, then choose Actions / Security / Modify IAM role Attach IAM role
+1. Select the instance
+1. Select Actions / Security / Modify IAM role Attach IAM role
 
-    Choose the role that we created in the previous step: CircleCI-Workshop-Admin. Find IAM role
+![aws-assign-role-step-1](/images/aws-assign-role-1.png)
 
-    Click Save
+## Modify IAM Role
 
-### Next Section Heading <!-- MODIFY THIS HEADING -->
+2. Choose the role that we created in the previous step: hs-workshop-cloud-9
+2. Click on Update IAM Role
+
+![aws-assign-role-step-1](/images/aws-assign-role-2.png)
+
+
+This completes the process to assign the new role.
+
+### Next Section: Configure the workshop
 This paragraph block can optionally be utilized to lead into the next section of the workshop.
