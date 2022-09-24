@@ -16,23 +16,24 @@ Your Terraform Cloud configuration must support Run Tasks.  This feature is enab
 ## 1. Sign In to Terraform Cloud
 
 
-## 2. Navigate into your General Settings, and Run tasks
-Navigate into your workspace and click on your Settings page, and then the settings page for your workspace.  This opens the settings for your entire workspace.
-![TerraformCloudSettings](/images/tfc-toolbar-1.png)
+![TerraformCloudCreateAccount](/images/terraform-cloud-create-account.png)
 
-From the settings page navigate into your Run Tasks section from the left-side of your Integrations page.
+## 2. Navigate into your General Settings, and Run tasks
+Navigate into your workspace and click on your Settings page, and then the settings page for your workspace.
+
 ![TerraformCloudSettings](/images/tfc-settings-1.png)
 
-You'll next see a button to **Create run task** which we'll click.
-![TerraformCloudSettings](/images/tfc-settings-run-tasks-1.png)
+From the settings page navigate into your Run Tasks section from the left-side of your Integrations page. You'll next see a button to **Create run task** which we'll click.
+
+![TerraformCloudSettingsRunTasks1](/images/tfc-settings-run-tasks-1.png)
 
 You will need four pieces of information, and two come from the Snyk website.  Two are values you enter, the the other two are from the Snyk website.
-![TerraformCloudSettings](/images/tfc-settings-run-tasks-2.png)
+![TerraformCloudSettingsRunTasks2](/images/tfc-settings-run-tasks-2.png)
 
 At this point, you can fill in two fields.
 
 1. Name your run task something suitable such as `snyk-run-task-for-workshop`.
-1. Enter a description suitable for this workshop or leave the field blank.  
+2. Enter a description suitable for this workshop or leave the field blank.  
 
 
 Let's next navigate to Snyk.io to get the remaining fields.  Keep this page open.
@@ -45,6 +46,8 @@ Search for or find the tile for Terraform Cloud.
 ![SnykTerraformCloud1](/images/snyk-tfc-settings-1.png)
 
 Within the Terraform Cloud configuration page, identify the fields for your URL and  HMAC key.  These are two values you'll copy and enter into the Terraform Cloud page for their respective values.
+
+We'll also change the threashold to **medium** for this workshop.
 ![SnykTerraformCloud2](/images/snyk-tfc-settings-2.png)
 
 When you are finished, your screen will look similar to what is shown below with your details.  Click on the enabled, **Create run task** button to finish.  This process validates your URL and HMAC key.

@@ -26,15 +26,27 @@ When you sign up, you will receive an email asking you to confirm your email add
 ![TerraformCloudCreateOrg](/images/terraform-cloud-create-org.png)
 
 
-### 3. Create a new [Terraform Cloud workspace](https://learn.hashicorp.com/terraform/cloud-getting-started/create-workspace) with **CLI driven workflow**.
+### 3. Signup for a [30-day Terraform Cloud Business trial](https://www.hashicorp.com/blog/announcing-free-trials-for-hashicorp-terraform-cloud-paid-offerings)
+
+Click on the Free Trial Available button
+
+![TerraformFreeTrial1](/images/tfc-free-trial-1.png)
+
+Select Trial Plan and hit 'Start your free trial'
+
+![TerraformFreeTrial2](/images/tfc-free-trial-2.png)
+
+And finally, return back to the workspaces home page.
+
+### 4. Create a new [Terraform Cloud workspace](https://learn.hashicorp.com/terraform/cloud-getting-started/create-workspace) with CLI driven workflow.
 
 ![TerraformCloudCreateWorkspace](/images/terraform-cloud-create-workspace.png)
 
-In the workspace, set workspace name as **arm-aws-ecs**
+In the workspace, set workspace name as **aws-workshop**
 
 ![TerraformCloudWorkspaceConfig](/images/terraform-cloud-workspace-config.png)
 
-### 4. Go to the [User Settings section](https://app.terraform.io/app/settings/tokens) in the Terraform Cloud Dashboard and create a new API token.
+### 5. Go to the [User Settings section](https://app.terraform.io/app/settings/tokens) in the Terraform Cloud Dashboard and create a new API token.
 
 ![TerraformCloudUserSetting](/images/terraform-cloud-user-setting.png)
 

@@ -196,7 +196,7 @@ It's good to see the changes we planned are accounted for, and that we have to r
 Run the apply command and re-do the tests to confirm lack of access from other IP addresses.
 
 ```bash
-terraform apply
+terraform apply -auto-approve
 ssh  ec2-user@3.238.195.45
 curl http://3.238.195.45
 ```
@@ -204,7 +204,7 @@ curl http://3.238.195.45
 When you are complete with these tests, let's delete the provisioned infrastructure.
 
 ```bash
-terraform destroy
+terraform destroy -auto-approve
 ```
 
 ## Next: Sending results to Snyk

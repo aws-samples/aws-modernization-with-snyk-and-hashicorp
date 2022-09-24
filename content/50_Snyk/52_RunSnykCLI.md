@@ -142,17 +142,74 @@ aws_security_group.allow_port_80_from_anywhere: Creating...
 ╵
 ```
 
+Terraform init will initialize all the providers you're using, providers are plugins that Terraform uses to spin up different resources using APIs. Since we're spinning up AWS resources only the AWS provider will be initialized.
 
 ```bash
 terraform init
+
+Initializing the backend...
+
+Initializing provider plugins...
+- Finding hashicorp/aws versions matching "4.28.0"...
+- Installing hashicorp/aws v4.28.0...
+- Installed hashicorp/aws v4.28.0 (signed by HashiCorp)
+
+Terraform has created a lock file .terraform.lock.hcl to record the provider
+selections it made above. Include this file in your version control repository
+so that Terraform can guarantee to make the same selections by default when
+you run "terraform init" in the future.
+
+Terraform has been successfully initialized!
+
+You may now begin working with Terraform. Try running "terraform plan" to see
+any changes that are required for your infrastructure. All Terraform commands
+should now work.
+
+If you ever set or change modules or backend configuration for Terraform,
+rerun this command to reinitialize your working directory. If you forget, other
+commands will detect it and remind you to do so if necessary.
+```
+
+Terraform plan will give you compiled output of everything you're trying to deploy or subsequent changes to your infrastructure if it already exists. 
+
+```bash
 terraform plan
-terraform apply
+
+data.aws_ami.amazon2: Reading...
+data.aws_ami.amazon2: Read complete after 0s [id=ami-027651f3c0057f627]
+
+Terraform used the selected providers to generate the following execution plan. Resource actions are
+indicated with the following symbols:
+  + create
+
+.
+.
+.
+
+
+Plan: 3 to add, 0 to change, 0 to destroy.
+
 ```
 
 There are many lines of output, and worth review.  However, we'll focus on the last lines:
 
 ```bash
-*****MULTIPLE LINES DELETED*****
+terraform apply -auto-approve
+
+data.aws_ami.amazon2: Reading...
+data.aws_ami.amazon2: Read complete after 1s [id=ami-027651f3c0057f627]
+
+Terraform used the selected providers to generate the following execution plan. Resource actions are indicated with the following symbols:
+  + create
+
+Terraform will perform the following actions:
+
+  # aws_instance.ec2 will be created
+  + resource "aws_instance" "ec2" {
+.
+.
+.
+
 
 Apply complete! Resources: 3 added, 0 changed, 0 destroyed.
 
@@ -164,14 +221,14 @@ instance_ip = "3.238.195.45"
 Given this IP address, you can attempt to access the instance via SSH with a command like this (your IP address will vary):
 
 ```bash
-ssh  ec2-user@3.238.195.45
+ssh ec2-user@3.238.195.45
 ```
 
 The results should look like the text below.  Note how we answer "yes" to the prompt, and we are denied access.  We are denied access because we don't have the ssh key to access the instance, so we can't connect.  However, anybody on the internet can access this instance via SSH and that is the crux of our problem.
 
 ```bash
 marco@potato ~/code/hashicorp/workshop/mam-vulnerable-ec2 (main)
-🐧$ ssh  ec2-user@3.238.195.45
+🐧$ ssh ec2-user@3.238.195.45
 The authenticity of host '3.238.195.45 (3.238.195.45)' can't be established.
 ED25519 key fingerprint is SHA256:hUp1LZEsGqsaUKkDqOjwutzSKJSpWiny1wJFNIhk3E0.
 This key is not known by any other names
@@ -194,7 +251,7 @@ In many cases, you may want the world to access your instance via port 80, and i
 In order to address these issues, we'll destroy the instance because we'll be making changes to the instance before we try these operations again.
 
 ```bash
-terraform destroy
+terraform destroy -auto-approve
 ```
 
 ## Next: Fixing IaC issues 
