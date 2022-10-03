@@ -40,18 +40,11 @@ At the Cloud9 prompt, enter these commands to download the binary for Linux and 
 ```
 curl https://static.snyk.io/cli/latest/snyk-linux -o snyk
 chmod +x ./snyk
-mv ./snyk /usr/local/bin/
+sudo mv ./snyk /usr/local/bin/
 ```
 
-Next, authenticate with Snyk by typing in the command below:
+In Cloud9 environments, you will need to authenticate on the CLI with your API token.  Previously, you should have created an API token.  If not, navigate to your Snyk Account (https://app.snyk.io/account), and get your API_TOKEN by clicking into your Account Settings -> API Token section.
 
-```
-snyk auth
-```
-
-This command directs you to authenticate in a browser.  If your environment does not bring up a web browser, you can instead get your authorization token from the Snyk UI.
-
-Navigate to your Snyk Account (https://app.snyk.io/account), and get your API_TOKEN by clicking into your Account Settings -> API Token section.
 In the KEY field, click your “click to show” box to copy your API token.
 
 You can then run this command where API_TOKEN is the value you copied.
@@ -65,6 +58,14 @@ That should be it!  Your response should look like the following:
     snyk auth 12345678-abcd-efgh-1234head5678bead
 
     Your account has been authenticated. Snyk is now ready to be used.
+
+If you are not on a Cloud9 environment, then your CLI should be able to start up a web browser and you can authenticate with this command:
+
+```
+snyk auth
+```
+
+In this case, you'll authenticate by logging on with the web UI of Snyk.
 
 
 ### Next Section: Running with Snyk

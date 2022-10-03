@@ -1,10 +1,10 @@
 ---
-title: "Self-Guided Setup Instructions"
+title: "Setting up your AWS account"
 chapter: true
-weight: 1 # MODIFY THIS VALUE TO REFLECT THE ORDERING OF THE MODULES
+weight: 21
 ---
 
-# Setting up your AWS account <!-- MODIFY THIS HEADING -->
+# Setting up your AWS account
 
 If you don’t already have an AWS account with Administrator access: create one now by clicking <a href="https://aws.amazon.com/getting-started/">here</a>.
 
@@ -22,5 +22,6 @@ Skip the part to add tags.  Click to create the new user: finish creation
 Take note of the login URL and save: login url
 ![aws-add-user-4](/images/aws-add-user-4.png)
 
-### Next Section Heading 
-TODO: Next, you will configure your workspace.
+### Next Section: Creating AWS Keys
+In the next section, you will create AWS keys to allow Terraform to deply to AWS on your behalf.
+

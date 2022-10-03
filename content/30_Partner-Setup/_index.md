@@ -18,6 +18,10 @@ You will also need CLI components for the following:
 1. HashiCorp terraform
 1. Snyk CLI
 
+This is the reference architecture for this workshop.
+
+![AWSWorkshopReferenceArch](/images/aws-terraform-snyk-arch.png)
+
 The next sections cover the instructions specific to each vendor.
 
 {{% notice warning %}}

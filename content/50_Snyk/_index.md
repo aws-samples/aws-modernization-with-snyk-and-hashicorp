@@ -1,5 +1,5 @@
 ---
-title: "Module 2: Snyk IaC"
+title: "Module 1: Snyk IaC"
 chapter: true
 weight: 50
 ---

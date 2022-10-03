@@ -9,7 +9,7 @@ weight: 52
 At your command prompt, run this command at the base directory of your repository you checked out.
 
 ```bash
-cd ~/cd vulnerable-ec2
+cd ~/environment/vulnerable-ec2
 snyk iac test
 ```
 
@@ -92,7 +92,7 @@ When you examine the entire output, you'll see several pieces of useful informat
 
 In this example, we have several issues that have a severity of Low or Medium, which is good for this workshop.  The focus will be on the three Medium issues.
 
-The first one is about your AWS Security Group allowing open ingress, or being open to the entire internet.  That is because the CIDR block access is specified as `0.0.0.0/0` for SSH access.  Typically this is not a good practice, so let's review the file entitled `main.tf` to address the issue.  Open the file in your editor and navigate to the section shown below.
+The first one is about your AWS Security Group allowing open ingress, or being open to the internet.  That is because the CIDR block access is specified as `0.0.0.0/0` for SSH access.  Typically this is not a good practice, so let's review the file entitled `main.tf` to address the issue.  Open the file in your editor and navigate to the section shown below.
 
 ```terraform
 resource "aws_security_group" "allow_ssh_from_anywhere" {
@@ -111,18 +111,105 @@ resource "aws_security_group" "allow_ssh_from_anywhere" {
   }
 ```
 
-Let's provision this instance to show how the application is misconfigured to permit access from the entire internet.
+Let's provision this instance to show how the application is misconfigured to permit access from the internet.
 
+TODO: We need to add the AWS Keys 
+*Previously, we configured an AWS KEY.  We'll need those details to ensure the next parts work.
+I assume keys are required for terraform.  Also, we have to evaluate how the settings within Cloud9 for *AWS managed temporary credentials* works for us.
+
+
+
+
+```bash
+aws_security_group.allow_port_80_from_anywhere: Creating...
+╷
+│ Error: creating Security Group (allow_ssh_from_anywhere): VPCIdNotSpecified: No default VPC for this user
+│       status code: 400, request id: cdf2f4d5-c0dc-4683-b123-dae5b002351c
+│ 
+│   with aws_security_group.allow_ssh_from_anywhere,
+│   on main.tf line 16, in resource "aws_security_group" "allow_ssh_from_anywhere":
+│   16: resource "aws_security_group" "allow_ssh_from_anywhere" {
+│ 
+╵
+╷
+│ Error: creating Security Group (allow_port_80_from_anywhere): VPCIdNotSpecified: No default VPC for this user
+│       status code: 400, request id: fdf22495-df5d-4c20-aa3a-d222c2756f99
+│ 
+│   with aws_security_group.allow_port_80_from_anywhere,
+│   on main.tf line 44, in resource "aws_security_group" "allow_port_80_from_anywhere":
+│   44: resource "aws_security_group" "allow_port_80_from_anywhere" {
+│ 
+╵
 ```
+
+Terraform init will initialize all the providers you're using, providers are plugins that Terraform uses to spin up different resources using APIs. Since we're spinning up AWS resources only the AWS provider will be initialized.
+
+```bash
 terraform init
+
+Initializing the backend...
+
+Initializing provider plugins...
+- Finding hashicorp/aws versions matching "4.28.0"...
+- Installing hashicorp/aws v4.28.0...
+- Installed hashicorp/aws v4.28.0 (signed by HashiCorp)
+
+Terraform has created a lock file .terraform.lock.hcl to record the provider
+selections it made above. Include this file in your version control repository
+so that Terraform can guarantee to make the same selections by default when
+you run "terraform init" in the future.
+
+Terraform has been successfully initialized!
+
+You may now begin working with Terraform. Try running "terraform plan" to see
+any changes that are required for your infrastructure. All Terraform commands
+should now work.
+
+If you ever set or change modules or backend configuration for Terraform,
+rerun this command to reinitialize your working directory. If you forget, other
+commands will detect it and remind you to do so if necessary.
+```
+
+Terraform plan will give you compiled output of everything you're trying to deploy or subsequent changes to your infrastructure if it already exists. 
+
+```bash
 terraform plan
-terraform apply
+
+data.aws_ami.amazon2: Reading...
+data.aws_ami.amazon2: Read complete after 0s [id=ami-027651f3c0057f627]
+
+Terraform used the selected providers to generate the following execution plan. Resource actions are
+indicated with the following symbols:
+  + create
+
+.
+.
+.
+
+
+Plan: 3 to add, 0 to change, 0 to destroy.
+
 ```
 
 There are many lines of output, and worth review.  However, we'll focus on the last lines:
 
 ```bash
-*****MULTIPLE LINES DELETED*****
+terraform apply -auto-approve
+
+data.aws_ami.amazon2: Reading...
+data.aws_ami.amazon2: Read complete after 1s [id=ami-027651f3c0057f627]
+
+Terraform used the selected providers to generate the following execution plan. Resource actions are indicated with the following symbols:
+  + create
+
+Terraform will perform the following actions:
+
+  # aws_instance.ec2 will be created
+  + resource "aws_instance" "ec2" {
+.
+.
+.
+
 
 Apply complete! Resources: 3 added, 0 changed, 0 destroyed.
 
@@ -134,14 +221,14 @@ instance_ip = "3.238.195.45"
 Given this IP address, you can attempt to access the instance via SSH with a command like this (your IP address will vary):
 
 ```bash
-ssh  ec2-user@3.238.195.45
+ssh ec2-user@3.238.195.45
 ```
 
 The results should look like the text below.  Note how we answer "yes" to the prompt, and we are denied access.  We are denied access because we don't have the ssh key to access the instance, so we can't connect.  However, anybody on the internet can access this instance via SSH and that is the crux of our problem.
 
 ```bash
 marco@potato ~/code/hashicorp/workshop/mam-vulnerable-ec2 (main)
-🐧$ ssh  ec2-user@3.238.195.45
+🐧$ ssh ec2-user@3.238.195.45
 The authenticity of host '3.238.195.45 (3.238.195.45)' can't be established.
 ED25519 key fingerprint is SHA256:hUp1LZEsGqsaUKkDqOjwutzSKJSpWiny1wJFNIhk3E0.
 This key is not known by any other names
@@ -150,7 +237,8 @@ Warning: Permanently added '3.238.195.45' (ED25519) to the list of known hosts.
 ec2-user@3.238.195.45: Permission denied (publickey,gssapi-keyex,gssapi-with-mic).
 ```
 
-Similiarly, run the following curl command to see how anybody can access your hosted application:
+Similiarly, run the following curl command to see how anybody can access your hosted application.  Remember, your instance has to be in the Running state in order to be able to provide a response to the curl command.  
+
 
 ```bash
 curl http://3.238.195.45
@@ -163,8 +251,8 @@ In many cases, you may want the world to access your instance via port 80, and i
 In order to address these issues, we'll destroy the instance because we'll be making changes to the instance before we try these operations again.
 
 ```bash
-terraform destroy
+terraform destroy -auto-approve
 ```
 
-## Next: Fixing IaC issues <!-- TODO: MODIFY the body -->
+## Next: Fixing IaC issues 
 Now that your EC2 instance is destroyed, we can address the issues starting in the next section.
