@@ -15,9 +15,7 @@ Return to your workspace and click the gear icon (in top right corner), or click
 
 ## Update awscli
 
-TODO: Verify if we even need this operation.  We may ask people ton figure their AWS access keys.
 Next, ensure your version of the AWS CLI is up to date.
-
 
 ```
 sudo pip install --upgrade awscli && hash -r
