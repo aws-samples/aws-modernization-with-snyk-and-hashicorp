@@ -8,10 +8,9 @@ weight: 53
 
 Here we edit the file named `main.tf` in your cloned repository.  In this file, navigate to the terraform block for the `aws_instance` named `ec2`.  This block is commented with `# WORKSHOP` to indicate it is part of the workshop activities.
 
-You will see text similar to what is shown below for the *ingress* or what is entering your EC2 instance from the outside.  We'll change the CIDR block from the `0.0.0.0/0` string, which allows *any* internet address to access your port 22 to something much more specific.  You'll need to find your internet IP address.  Sometimes this is as simple as a [search in google is sufficient](https://www.google.com/search?q=what+is+my+ip&oq=what+is+my+ip), and other times you may have to use a service such as [whatismyipaddress.com](https://whatismyipaddress.com/) or others.  Get your IP address and modify the block in an editor to specify your IP address followed by "/32" to limit the range to exactly one IP.  For example, if you IP address is 42.43.44.45, the file will specified as shown below:
+You will see text similar to what is shown below for the *ingress* or what is entering your EC2 instance from the outside.  The best way to do this is to use your workstation and not your Cloud9 instance, since they have different IP addresses.  
 
-TODO: state how we'll take advantage of the Cloud9 IP is different from your working machine.  Get the IP address for your machine to verify it works from there, but it will not work from the Cloud9 instance.
-
+We'll change the CIDR block from the `0.0.0.0/0` string, which allows *any* internet address to access your port 22 to something much more specific.  You'll need to find your internet IP address.  Sometimes this is as simple as a [search in google is sufficient](https://www.google.com/search?q=what+is+my+ip&oq=what+is+my+ip), and other times you may have to use a service such as [whatismyipaddress.com](https://whatismyipaddress.com/) or others.  Get the IP address of your host workstation and modify the block in an editor to specify your IP address followed by "/32" to limit the range to exactly one IP.  For example, if you IP address is 42.43.44.45, the file will specified as shown below:
 
 ```terraform
   ingress {

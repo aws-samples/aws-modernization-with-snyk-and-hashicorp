@@ -113,11 +113,19 @@ resource "aws_security_group" "allow_ssh_from_anywhere" {
 
 Let's provision this instance to show how the application is misconfigured to permit access from the internet.
 
-TODO: We need to add the AWS Keys 
-*Previously, we configured an AWS KEY.  We'll need those details to ensure the next parts work.
-I assume keys are required for terraform.  Also, we have to evaluate how the settings within Cloud9 for *AWS managed temporary credentials* works for us.
+*Previously, we configured an AWS KEY.  We'll need those details to ensure the next parts work.  You have more than one option, and the option we specify here is to use a file named `secrets.auto.tfvars` with contents that look like this:
+
+```terraform
+access_key = "YOURACCESSKEY"
+secret_key = "YOURSECRET"
+```
 
 
+{{% notice info %}}
+The workshop depends on the existence of a default VPC.  Some people remove the default VPC in their environments.  If you see an error message as below, you need to ensure you define a default VPC in the region you are working from.
+{{% /notice %}}
+
+In practical applications, auto.tfvars files do not get committed to github by virtue of gitignore exclusions.  Think of this approach as a quick way to provide credentials.  Other alternatives are to use environment variables or configure IAM roles.  We're taking the easy path for this workshop.
 
 
 ```bash
