@@ -192,7 +192,7 @@ Changes to Outputs:
 
 It's good to see the changes we planned are accounted for, and that we have to replace items for some of them.
 
-Run the apply command and re-do the tests to confirm lack of access from other IP addresses.
+Run the `terraform apply` command and re-do the tests to confirm lack of access from other IP addresses.
 
 ```bash
 terraform apply -auto-approve
@@ -200,7 +200,7 @@ ssh  ec2-user@3.238.195.45
 curl http://3.238.195.45
 ```
 
-When you are complete with these tests, let's delete the provisioned infrastructure.
+When you are complete with these tests, delete the provisioned infrastructure with a `terraform destroy` command.
 
 ```bash
 terraform destroy -auto-approve
@@ -208,4 +208,3 @@ terraform destroy -auto-approve
 
 ## Next: Sending results to Snyk
 In the next section, we'll send results to the Snyk UI.
-
