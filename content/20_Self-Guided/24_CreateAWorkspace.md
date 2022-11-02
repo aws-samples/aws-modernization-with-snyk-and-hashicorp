@@ -28,7 +28,7 @@ In the configuration screens,
 - Select the default instance type t2.micro
 - Leave all the other settings as default and click Next
 
-![aws-cloud9-step-1](/images/aws-cloud9-2.png)
+![aws-cloud9-step-1](/images/aws-cloud9-2-new.png)
 
 Verify your selections and press the button to **Create environment**.
 
