@@ -18,8 +18,7 @@ In this repository, we include several commented lined identified with the text 
 {{% /notice %}}
 
 
-This process should only take a few seconds, and you will see many lines of output with a summary similar to what is shown below. The net result is no issues detected.  In the example below, our test Snyk Organization is hamed `hashicorp`.  You will see more output than what is shown below.
-
+This process should only take a few seconds, and you will see many lines of output with a summary similar to what is shown below. The net result is no issues detected.  In the example below, our test Snyk Organization is named `hashicorp`.  You will see more output than what is shown below.
 
 
 ```bash
@@ -253,8 +252,7 @@ curl http://3.238.195.45
 <h1>Hello World from the AWS HashiCorp + Snyk Workshop on ip-172-31-12-224.ec2.internal</h1>
 ```
 
-In many cases, you may want the world to access your instance via port 80, and in other cases you may want to limit access.  Let's assume you would prefer to limit access for the purposes of this workshop.
-
+In many cases, you may want the world to access your instance via port 80, and in other cases you may want to limit access.  We'll assume we prefer to limit access for the purposes of this workshop.
 
 In order to address these issues, we'll destroy the instance because we'll be making changes to the instance before we try these operations again.
 

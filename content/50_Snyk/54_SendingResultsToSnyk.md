@@ -52,5 +52,5 @@ Let's click on the Ignore Temporarily option and add a comment.  When you save y
 
 ![snyk-project-entry](/images/snyk-iac-ignore-temporarily.png)
 
-
-
+## Next: Optional exercise
+In the next section, we provide an optional exercise utilizing an EKS cluster.

@@ -15,7 +15,7 @@ This workshop uses services that require you to create an account or download CL
 
 You will also need CLI components for the following:
 
-1. HashiCorp terraform
+1. HashiCorp Terraform
 1. Snyk CLI
 
 This is the reference architecture for this workshop.

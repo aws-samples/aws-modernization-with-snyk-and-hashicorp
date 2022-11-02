@@ -233,4 +233,5 @@ Test Summary
   Total issues: 14 [ 0 critical, 1 high, 2 medium, 11 low ]
 ```
 
-
+## Next: HashiCorp Terraform Cloud
+In the next module, we'll review results with Terraform Cloud.
