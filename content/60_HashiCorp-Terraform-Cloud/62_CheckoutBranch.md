@@ -11,8 +11,8 @@ Let's start by checking out an existing branch of the repository you've been wor
 You should have some local changes, we'll stash them before proceeding.
 
 ```bash
-cd ~/environment/vulnerable-ec2
-git stash
+cd ~/environment/vulnerable-ec2 && \
+git stash && \
 git checkout tfc
 ```
 
