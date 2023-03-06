@@ -9,7 +9,7 @@ weight: 52
 At your command prompt, run this command at the base directory of your repository you checked out.
 
 ```bash
-cd ~/environment/vulnerable-ec2
+cd ~/environment/vulnerable-ec2 && \
 snyk iac test
 ```
 
