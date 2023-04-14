@@ -38,8 +38,8 @@ https://docs.snyk.io/snyk-cli/install-the-snyk-cli
 At the Cloud9 prompt, enter these commands to download the binary for Linux and move them to your bin folder (/usr/local/bin):
 
 ```
-curl https://static.snyk.io/cli/latest/snyk-linux -o snyk
-chmod +x ./snyk
+curl https://static.snyk.io/cli/latest/snyk-linux -o snyk && \
+chmod +x ./snyk && \
 sudo mv ./snyk /usr/local/bin/
 ```
 

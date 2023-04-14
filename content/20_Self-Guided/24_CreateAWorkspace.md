@@ -47,8 +47,7 @@ Once your Cloud9 environment is running, customize by:
 
 Tip: You are free to customize the look and feel of your environment, including the color scheme.
 
-Tip: Cloud9 requires third-party-cookies. You can whitelist the specific domains. You are having issues with this, Ad blockers, javascript disabler, and tracking blockers should be disabled for the cloud9 domain, or connecting to the workspace might be impacted.
+Tip: Cloud9 requires third-party-cookies. You can whitelist the specific domains. If you are having issues with this, ad blockers, javascript disabler, and tracking blockers should be disabled for the cloud9 domain, or connecting to the workspace might be impacted.
 
 ### Next Section: Create IAM Role
 In the next section, we describe how to create an IAM role for your Cloud9 environment.
-

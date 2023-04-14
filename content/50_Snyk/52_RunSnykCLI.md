@@ -9,7 +9,7 @@ weight: 52
 At your command prompt, run this command at the base directory of your repository you checked out.
 
 ```bash
-cd ~/environment/vulnerable-ec2
+cd ~/environment/vulnerable-ec2 && \
 snyk iac test
 ```
 
@@ -18,7 +18,7 @@ In this repository, we include several commented lined identified with the text 
 {{% /notice %}}
 
 
-This process should only take a few seconds, and you will see many lines of output with a summary similar to what is shown below. The net result is no issues detected.  In the example below, our test Snyk Organization is named `hashicorp`.  You will see more output than what is shown below.
+This process should only take a few seconds, and you will see many lines of output with a summary similar to what is shown below.  In the example below, our test Snyk Organization is named `hashicorp`.  You will see more output than what is shown below.
 
 
 ```bash
