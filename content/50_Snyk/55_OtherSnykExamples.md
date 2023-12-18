@@ -15,7 +15,7 @@ We will follow the same checkout steps as before, starting from the top of your 
 
 ```bash
 cd ~/environment
-git clone https://github.com/snyk/terraform-goof.git
+git clone https://github.com/snyk-labs/terraform-goof.git
 cd terraform-goof
 ```
 
@@ -46,7 +46,7 @@ Low Severity Issues: 8
 Test Summary
 
   Organization: hashicorp
-  Project name: snyk/terraform-goof
+  Project name: snyk-labs/terraform-goof
 
 ✔ Files without issues: 8
 ✗ Files with issues: 4
@@ -105,7 +105,7 @@ Snyk Infrastructure as Code
 Test Summary
 
   Organization: hashicorp
-  Project name: snyk/terraform-goof
+  Project name: snyk-labs/terraform-goof
 
 ✔ Files without issues: 19
 ✗ Files with issues: 8
