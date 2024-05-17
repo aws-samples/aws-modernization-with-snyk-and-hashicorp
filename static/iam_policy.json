@@ -36,7 +36,7 @@
       "Effect": "Allow",
       "Action": "iam:PassRole",
       "Resource": [
-        "arn:aws:iam::${AWS::AccountId}:role/eksworkshop-admin"
+        "arn:aws:iam::${{.AccountId}}:role/eksworkshop-admin"
       ]
     }
   ]
