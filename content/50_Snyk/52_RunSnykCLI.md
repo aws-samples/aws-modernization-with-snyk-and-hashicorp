@@ -8,7 +8,7 @@ weight: 52
 
 At your command prompt, run this command at the base directory of your repository you checked out.
 
-```bash
+```sh
 cd ~/environment/vulnerable-ec2 && \
 snyk iac test
 ```
@@ -21,7 +21,7 @@ In this repository, we include several commented lined identified with the text 
 This process should only take a few seconds, and you will see many lines of output with a summary similar to what is shown below.  In the example below, our test Snyk Organization is named `hashicorp`.  You will see more output than what is shown below.
 
 
-```bash
+```sh
 snyk iac test
 
 Snyk Infrastructure as Code
@@ -127,7 +127,7 @@ The workshop depends on the existence of a default VPC.  Some people remove the 
 In practical applications, auto.tfvars files do not get committed to github by virtue of gitignore exclusions.  Think of this approach as a quick way to provide credentials.  Other alternatives are to use environment variables or configure IAM roles.  We're taking the easy path for this workshop.
 
 
-```bash
+```sh
 aws_security_group.allow_port_80_from_anywhere: Creating...
 ╷
 │ Error: creating Security Group (allow_ssh_from_anywhere): VPCIdNotSpecified: No default VPC for this user
@@ -151,7 +151,7 @@ aws_security_group.allow_port_80_from_anywhere: Creating...
 
 Terraform init will initialize all the providers you're using, providers are plugins that Terraform uses to spin up different resources using APIs. Since we're spinning up AWS resources only the AWS provider will be initialized.
 
-```bash
+```sh
 terraform init
 
 Initializing the backend...
@@ -179,7 +179,7 @@ commands will detect it and remind you to do so if necessary.
 
 Terraform plan will give you compiled output of everything you're trying to deploy or subsequent changes to your infrastructure if it already exists. 
 
-```bash
+```sh
 terraform plan
 
 data.aws_ami.amazon2: Reading...
@@ -200,7 +200,7 @@ Plan: 3 to add, 0 to change, 0 to destroy.
 
 There are many lines of output, and worth review.  However, we'll focus on the last lines:
 
-```bash
+```sh
 terraform apply -auto-approve
 
 data.aws_ami.amazon2: Reading...
@@ -227,13 +227,13 @@ instance_ip = "3.238.195.45"
 
 Given this IP address, you can attempt to access the instance via SSH with a command like this (your IP address will vary):
 
-```bash
+```sh
 ssh ec2-user@3.238.195.45
 ```
 
 The results should look like the text below.  Note how we answer "yes" to the prompt, and we are denied access.  We are denied access because we don't have the ssh key to access the instance, so we can't connect.  However, anybody on the internet can access this instance via SSH and that is the crux of our problem.
 
-```bash
+```sh
 marco@potato ~/code/hashicorp/workshop/mam-vulnerable-ec2 (main)
 🐧$ ssh ec2-user@3.238.195.45
 The authenticity of host '3.238.195.45 (3.238.195.45)' can't be established.
@@ -247,7 +247,7 @@ ec2-user@3.238.195.45: Permission denied (publickey,gssapi-keyex,gssapi-with-mic
 Similiarly, run the following curl command to see how anybody can access your hosted application.  Remember, your instance has to be in the Running state in order to be able to provide a response to the curl command.  
 
 
-```bash
+```sh
 curl http://3.238.195.45
 <h1>Hello World from the AWS HashiCorp + Snyk Workshop on ip-172-31-12-224.ec2.internal</h1>
 ```
@@ -256,7 +256,7 @@ In many cases, you may want the world to access your instance via port 80, and i
 
 In order to address these issues, we'll destroy the instance because we'll be making changes to the instance before we try these operations again.
 
-```bash
+```sh
 terraform destroy -auto-approve
 ```
 
