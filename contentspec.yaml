@@ -24,6 +24,12 @@ infrastructure:
     - templateLocation: static/cfn.yaml
       label: EKS Workshop Environment
 
+      parameters:
+
+          # The parameter name present in the corresponding CloudFormation template
+        - templateParameter: WorkshopStudioRun
+          defaultValue: "true"
+
 # END Infrastructure
 
 # START Accounts
@@ -56,5 +62,7 @@ awsAccountConfig:
         - us-west-2
         - us-east-1
         - us-east-2
+
+        
       
 # END Accounts
