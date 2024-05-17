@@ -22,6 +22,6 @@ cd vulnerable-ec2
 Note: If you have an existing Snyk account with more than one organization, and you wish to use a non-default org, you can set this.  Find your org ID (ORG_ID below) and it with the command below.  Your desired ORG_ID should be a 32 character UUID unique to you.
 {{% /notice %}}
 
-```
+```sh
 snyk config set org=ORG_ID
 ```
