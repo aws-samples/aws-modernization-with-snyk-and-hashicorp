@@ -11,18 +11,16 @@ localeCodes:
 params:
   author: Patrick Vassell & Shashiraj (Raj) Jeripotula 
   description: Snyk, Hashicorp & AWS - Modernization Workshop
+  Cloud9IDEInstanceType: t3.large
+  KubernetesVersion: "1.29"
+  EKSClusterName: eksworkshop-eksctl
+  WorkerNodeInstanceType: t2.medium
 
 # List of links to display in the workshop guide. Will be rendered on the left hand side navigation menu.
 additionalLinks:
   - title: SNYK AND HASHICORP SECURING YOUR INFRASTRUCTURE AS CODE
     link: https://snyk-hashicorp.awsworkshop.io/
-
-# A list of arbitrary parameters for referencing in the workshop guide.
-params:
-  Cloud9IDEInstanceType: t3.large
-  KubernetesVersion: "1.29"
-  EKSClusterName: eksworkshop-eksctl
-  WorkerNodeInstanceType: t2.medium
+  
 
 # START Infrastructure
 infrastructure:
