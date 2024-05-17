@@ -12,7 +12,7 @@ We'll make changes to your local checkout, but not commit.  This process mirrors
 
 Let's start by cloning a fresh copy of this public repository from GitHub.  In your working environment, run these commands to start from your home directory and perform a clone of the repository:
 
-```bash
+```sh
 cd ~/environment && \
 git clone https://github.com/gautambaghel/vulnerable-ec2 && \
 cd vulnerable-ec2
