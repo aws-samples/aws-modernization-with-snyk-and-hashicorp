@@ -1,0 +1,68 @@
+version: 2.0
+
+# BEGIN Locale
+defaultLocaleCode: en-US
+localeCodes:
+  - en-US
+# END Locale
+
+# A list of arbitrary parameters for referencing in the workshop guide.
+params:
+  Cloud9IDEInstanceType: t3.large
+  KubernetesVersion: "1.29"
+  EKSClusterName: eksworkshop-eksctl
+  WorkerNodeInstanceType: t2.medium
+
+# START Infrastructure
+infrastructure:
+  cloudformationTemplates:
+    - templateLocation: static/cfn.yaml
+      label: EKS Workshop Environment
+      parameters:
+        - templateParameter: Cloud9IDEInstanceType
+          userOverridable: true
+        - templateParameter: KubernetesVersion
+          userOverridable: true
+        - templateParameter: EKSClusterName
+          userOverridable: true
+        - templateParameter: WorkerNodeInstanceType
+          userOverridable: true
+# END Infrastructure
+
+# START Accounts
+awsAccountConfig:
+  accountSources:
+    - workshop_studio
+  serviceLinkedRoles:
+    - appsync.amazonaws.com
+  participantRole:
+    iamPolicies: 
+      - static/iam_policy.json
+    managedPolicies:
+      - "arn:aws:iam::aws:policy/IAMReadOnlyAccess"
+      - "arn:aws:iam::aws:policy/AdministratorAccess"
+    trustedPrincipals:
+      service:
+        - ec2.amazonaws.com
+        - codebuild.amazonaws.com
+        - lambda.amazonaws.com
+  regionConfiguration:
+    minAccessibleRegions: 1
+    maxAccessibleRegions: 3
+    accessibleRegions:
+      required:
+        - us-west-2
+      recommended:
+        - us-west-2
+      optional:
+        - us-west-2
+        - us-east-2
+    deployableRegions:
+      required:
+        - us-west-2
+      recommended:
+        - us-west-2
+      optional:
+        - us-west-2
+        - us-east-2
+# END Accounts
