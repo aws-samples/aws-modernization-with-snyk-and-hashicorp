@@ -37,7 +37,7 @@ https://docs.snyk.io/snyk-cli/install-the-snyk-cli
 
 At the Cloud9 prompt, enter these commands to download the binary for Linux and move them to your bin folder (/usr/local/bin):
 
-```
+```sh
 curl https://static.snyk.io/cli/latest/snyk-linux -o snyk && \
 chmod +x ./snyk && \
 sudo mv ./snyk /usr/local/bin/
@@ -49,8 +49,8 @@ In the KEY field, click your “click to show” box to copy your API token.
 
 You can then run this command where API_TOKEN is the value you copied.
 
-```
-snyk auth API_TOKEN.
+```sh
+snyk auth <API_TOKEN>
 ```
 
 That should be it!  Your response should look like the following:
@@ -61,7 +61,7 @@ That should be it!  Your response should look like the following:
 
 If you are not on a Cloud9 environment, then your CLI should be able to start up a web browser and you can authenticate with this command:
 
-```
+```sh
 snyk auth
 ```
 
