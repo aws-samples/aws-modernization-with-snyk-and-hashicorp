@@ -22,24 +22,24 @@ At the Cloud9 prompt, enter these commands to install the Terraform CLI using th
 
 1. Install yum-config-manager to manage your repositories:
 
-```
+```sh
 sudo yum install -y yum-utils
 ```
 
 2. Next, Use yum-config-manager to add the official HashiCorp Linux repository:
 
-```
+```sh
 sudo yum-config-manager --add-repo 'https://rpm.releases.hashicorp.com/AmazonLinux/hashicorp.repo'
 ```
 
 3. Next, Install Terraform from the new repository.
 
-```
+```sh
 sudo yum -y install terraform
 ```
 
 4. Finally, verify successfull installation:
 
-```
+```sh
 terraform -help
 ```
