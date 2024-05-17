@@ -1,4 +1,3 @@
----
 AWSTemplateFormatVersion: '2010-09-09'
 Description: Creates a Cloud9 IDE for the EKS workshop
 Parameters:
@@ -375,19 +374,21 @@ Resources:
                 export RESOURCES_PRECREATED="${ResourcesPrecreated}"
                 export ANALYTICS_ENDPOINT="${AnalyticsEndpoint}"
 
+                # Install software-properties-common to manage repositories
+                sudo apt-get update
+                sudo apt-get install -y software-properties-common
                 
-                # Install yum-config-manager to manage repositories
-                sudo yum install -y yum-utils
-
-                cd /home/ec2-user/environment
+                cd /home/ubuntu/environment
                 git clone https://github.com/gautambaghel/vulnerable-ec2
-
+                
                 # Add the official HashiCorp Linux repository
-                sudo yum-config-manager --add-repo 'https://rpm.releases.hashicorp.com/AmazonLinux/hashicorp.repo'
-
+                curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo apt-key add -
+                sudo apt-add-repository "deb [arch=amd64] https://apt.releases.hashicorp.com $(lsb_release -cs) main"
+                
                 # Install Terraform from the new repository
-                sudo yum -y install terraform
-
+                sudo apt-get update
+                sudo apt-get install -y terraform
+                
                 # Install Snyk CLI
                 curl -fsSL https://static.snyk.io/cli/latest/snyk-linux -o snyk && \
                 chmod +x ./snyk && \
@@ -404,7 +405,7 @@ Resources:
     Type: AWS::Cloud9::EnvironmentEC2
     Properties:
       Description: AWS Cloud9 instance for EKS Workshop
-      ImageId: amazonlinux-2023-x86_64
+      ImageId: ubuntu-22.04-x86_64
       AutomaticStopTimeMinutes: 3600
       InstanceType:
         Ref: EksWorkshopC9InstanceType
