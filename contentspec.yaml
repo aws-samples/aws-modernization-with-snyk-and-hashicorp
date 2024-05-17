@@ -29,6 +29,8 @@ infrastructure:
           # The parameter name present in the corresponding CloudFormation template
         - templateParameter: WorkshopStudioRun
           defaultValue: "true"
+        - templateParameter: C9InstanceVolumeSize
+          defaultValue: 50
 
 # END Infrastructure
 
