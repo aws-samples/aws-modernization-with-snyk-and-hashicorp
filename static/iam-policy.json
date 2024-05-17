@@ -1,43 +1,86 @@
-[
+{
+  "Version": "2012-10-17",
+  "Statement": [
     {
-      "Effect": "Allow",
+      "Resource": "*",
       "Action": [
-        "ec2:AssociateIamInstanceProfile",
-        "ec2:DescribeInstances"
+        "application-autoscaling:*",
+        "autoscaling-plans:*",
+        "autoscaling:*",
+        "cloud9:*",
+        "cloudformation:*",
+        "cloudtrail:*",
+        "cloudwatch:*",
+        "ec2:*",
+        "ecr:*",
+        "ecs:*",
+        "elasticloadbalancing:*",
+        "iam:*",
+        "logs:*",
+        "s3:*",
+        "secretsmanager:*",
+        "ssm:*",
+        "ssmmessages:*",
+        "tag:*",
+        "xray:*",
+        "wafv2:*",
+        "eks:*",
+        "codepipeline:*",
+        "codebuild:*",
+        "codecommit:*"
       ],
-      "Resource": "*"
+      "Effect": "Allow",
+      "Sid": "AllReaperSupportedServices"
     },
     {
-      "Effect": "Allow",
-      "Action": [
-        "kms:Encrypt",
-        "kms:Decrypt",
-        "kms:ReEncrypt*",
-        "kms:GenerateDataKey*",
-        "kms:DescribeKey"
-      ],
-      "Resource": "*"
-    },
-    {
-      "Effect": "Allow",
-      "Action": [
-        "codebuild:StartBuild"
-      ],
-      "Resource": "*"
-    },
-    {
-      "Effect": "Allow",
-      "Action": [
-        "eks:CreateCluster"
-      ],
-      "Resource": "*"
-    },
-    {
-      "Effect": "Allow",
-      "Action": "iam:PassRole",
+      "Condition": {
+        "StringLike": {
+          "ec2:InstanceType": [
+            "*6xlarge",
+            "*8xlarge",
+            "*10xlarge",
+            "*12xlarge",
+            "*16xlarge",
+            "*18xlarge",
+            "*24xlarge",
+            "f1.4xlarge",
+            "x1*",
+            "z1*",
+            "*metal"
+          ]
+        }
+      },
       "Resource": [
-        "arn:aws:iam::${AWS::AccountId}:role/eksworkshop-admin"
-      ]
+        "arn:aws:ec2:*:*:instance/*"
+      ],
+      "Action": "ec2:RunInstances",
+      "Effect": "Deny",
+      "Sid": "DenyXXLInstances"
+    },
+    {
+      "Resource": "*",
+      "Action": [
+        "ec2:ModifyReservedInstances",
+        "ec2:PurchaseHostReservation",
+        "ec2:PurchaseReservedInstancesOffering",
+        "ec2:PurchaseScheduledInstances",
+        "rds:PurchaseReservedDBInstancesOffering",
+        "dynamodb:PurchaseReservedCapacityOfferings"
+      ],
+      "Effect": "Deny",
+      "Sid": "DontBuyReservationsPlz"
+    },
+    {
+      "Resource": "{{.ParticipantRoleArn}}",
+      "Action": "iam:PassRole",
+      "Effect": "Allow",
+      "Sid": "PassRole"
+    },
+    {
+      "Resource": "*",
+      "Action": "cloud9:UpdateEnvironment",
+      "Effect": "Deny",
+      "Sid": "DenyC9EnvironmentUpdate"
     }
   ]
-  
+}
