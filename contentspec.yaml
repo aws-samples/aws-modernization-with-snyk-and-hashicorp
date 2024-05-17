@@ -6,6 +6,17 @@ localeCodes:
   - en-US
 # END Locale
 
+# A dictionary of arbitrary parameters that can be referenced in the workshop guide
+# using the params directive.
+params:
+  author: Patrick Vassell & Shashiraj (Raj) Jeripotula 
+  description: Snyk, Hashicorp & AWS - Modernization Workshop
+
+# List of links to display in the workshop guide. Will be rendered on the left hand side navigation menu.
+additionalLinks:
+  - title: SNYK AND HASHICORP SECURING YOUR INFRASTRUCTURE AS CODE
+    link: https://snyk-hashicorp.awsworkshop.io/
+
 # A list of arbitrary parameters for referencing in the workshop guide.
 params:
   Cloud9IDEInstanceType: t3.large
@@ -50,19 +61,14 @@ awsAccountConfig:
     minAccessibleRegions: 1
     maxAccessibleRegions: 3
     accessibleRegions:
-      required:
-        - us-west-2
       recommended:
         - us-west-2
-      optional:
-        - us-west-2
+        - us-east-1
         - us-east-2
     deployableRegions:
-      required:
-        - us-west-2
       recommended:
         - us-west-2
-      optional:
-        - us-west-2
+        - us-east-1
         - us-east-2
+      
 # END Accounts
