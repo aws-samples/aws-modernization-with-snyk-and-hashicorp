@@ -63,6 +63,13 @@ Parameters:
     Type: String
     Description: Analytics endpoint used for AWS events
     Default: ""
+  WorkshopStudioRun: 
+    Type: String
+    Description: Flag to determine if the workshop is run in Workshop Studio or not.
+    Default: "false"
+    AllowedValues: 
+      - "true"
+      - "false"
 
 Conditions: 
   Create3rdPartyResources: !Equals [ !Ref EksWorkshopC9EnvType, 3rdParty ]
@@ -403,7 +410,7 @@ Resources:
         Ref: EksWorkshopC9InstanceType
       SubnetId: !If [ IsCloud9SubnetSpecified, !Ref Cloud9Subnet, !Ref "AWS::NoValue" ]
       Name: !If [ IsCloud9NotNamed, !Ref AWS::StackName, !Ref Cloud9Name ]
-      OwnerArn: !If [ Create3rdPartyResources, !Ref WorkshopOwnerArn, !Ref "AWS::NoValue" ]
+      OwnerArn: !If [RunonWorkshopStudio, !Sub "arn:aws:iam::${AWS::AccountId}:assumed-role/WSParticipantRole/Participant", !Ref "AWS::NoValue" ]
       Tags: 
         - Key: SSMBootstrap
           Value: Active
