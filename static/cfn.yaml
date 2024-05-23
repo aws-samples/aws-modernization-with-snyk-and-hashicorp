@@ -427,6 +427,7 @@ Resources:
                 - echo 'export PATH' >> /home/ubuntu/.bashrc
                 - !Sub echo 'export AWS_REGION=${AWS::Region}' >> /home/ubuntu/.bashrc
                 - !Sub echo 'export AWS_ACCOUNTID=${AWS::AccountId}' >> /home/ubuntu/.bashrc
+                - !Sub echo 'export CLUSTER_NAME=${EKSClusterName}' >> /home/ubuntu/.bashrc
                 - echo 'export NEXT_TELEMETRY_DISABLED=1' >> /home/ubuntu/.bashrc
                 - source <(kubectl completion bash)
                 - echo "source <(kubectl completion bash)" >> /home/ubuntu/.bashrc
@@ -439,21 +440,21 @@ Resources:
                 - chown -R ubuntu:ubuntu /home/ubuntu/
                 - echo 'Checking for EKS cluster availability...'
                 - !Sub |
-                  CLUSTER_NAME=${EKSClusterName}
-                  until aws eks describe-cluster --name $CLUSTER_NAME --query 'cluster.status' --output text | grep -q 'ACTIVE'; do
-                    echo 'Waiting for EKS cluster $CLUSTER_NAME to become ACTIVE...'
+                  CLUSTERNAME=${EKSClusterName}
+                  until aws eks describe-cluster --name ${CLUSTER_NAME} --region ${AWS_REGION} --query 'cluster.status' --output text | grep -q 'ACTIVE'; do
+                    echo 'Waiting for EKS cluster ${CLUSTER_NAME} to become ACTIVE...'
                     sleep 30
                   done
-                  echo 'EKS cluster $CLUSTER_NAME is active. Configuring kubectl...'
-                  aws eks update-kubeconfig --name $CLUSTER_NAME
+                  echo 'EKS cluster ${CLUSTER_NAME} is active. Configuring kubectl...'
+                  aws eks update-kubeconfig --region ${AWS_REGION} --name ${CLUSTER_NAME}
                   kubectl cluster-info
-                  echo 'kubectl configured successfully for cluster: $CLUSTER_NAME.'
+                  echo 'kubectl configured successfully for cluster: ${CLUSTER_NAME}.'
                   echo "source <(kubectl completion bash)" >> /home/ubuntu/.bashrc
                   echo "alias k=kubectl" >> /home/ubuntu/.bashrc
                   echo "complete -o default -F __start_kubectl k" >> /home/ubuntu/.bashrc
                   source /home/ubuntu/.bashrc
                   echo 'Bootstrap completed with return code $?'
-                  aws eks update-kubeconfig --name $CLUSTER_NAME
+                  aws eks update-kubeconfig --region ${AWS_REGION}--name ${CLUSTER_NAME} 
 
 
 
