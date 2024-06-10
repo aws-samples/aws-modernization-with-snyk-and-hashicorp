@@ -13,7 +13,7 @@ Included in this environment will be a Cloud9 IDE pre-configured for your conven
 If you are currently logged in to an AWS Account, you can log out using this [link](https://console.aws.amazon.com/console/logout!doLogout)
 {{% /notice %}}
 
-### Logging into Event Engine Dashboard
+### Logging into Workshp Studio Dashboard
 
 1. Connect to the portal by clicking the button or browsing to [https://catalog.us-east-1.prod.workshops.aws/](https://catalog.us-east-1.prod.workshops.aws/). The following screen shows up. Enter the provided hash in the text box.
 
