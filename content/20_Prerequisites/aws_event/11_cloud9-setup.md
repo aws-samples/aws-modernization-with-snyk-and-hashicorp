@@ -13,7 +13,7 @@ weight: 11
 Once you have logged into the AWS Management Console from your Workshop Studio event dashboard page, you will already have an EKS cluster and Cloud9 environment. A few additional steps are required to configure Cloud9 and install the tools as follows.
 
 
-![cloudd9](/images/workshop-studio-cloud9-dashboard.png)
+![cloud9](/images/workshop-studio-cloud9-dashboard.png)
 
 Click on the **Open** button under the **Cloud9 IDE** column header and you will see your pre-configured environment.  Go ahead close the "Welcome" tab to reduce clutter.
 
