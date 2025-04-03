@@ -21,16 +21,11 @@ additionalLinks:
 # START Infrastructure
 infrastructure:
   cloudformationTemplates:
-    - templateLocation: static/cfn.yaml
-      label: EKS Workshop Environment
-
-      parameters:
-
-          # The parameter name present in the corresponding CloudFormation template
-        - templateParameter: WorkshopStudioRun
-          defaultValue: "true"
-        - templateParameter: C9InstanceVolumeSize
-          defaultValue: 50
+    - templateLocation: static/infrastructure/vscode-server.yaml
+      label: Snyk Workshop Vscode Server
+      participantVisibleStackOutputs:
+        - VSCODEURL
+        - Password
 
 # END Infrastructure
 
