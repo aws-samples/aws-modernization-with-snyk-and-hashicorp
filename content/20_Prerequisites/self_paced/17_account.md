@@ -76,7 +76,7 @@ Once the stack status changes to `CREATE_COMPLETE`, the resources for the Snyk x
 
 - Go to the **CloudFormation Outputs** tab for each stack to verify the deployment details.  
 
-   ![CloudFormation Outputs Tab](/images/event-output.png) 
+   ![CloudFormation Outputs Tab](/images/event-output.png)
 
 - The `vscode-server.yaml` stack will provide the `VSCODEURL` and `Password` for accessing the VS Code server.
 
