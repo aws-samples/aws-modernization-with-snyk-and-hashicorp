@@ -1,14 +1,14 @@
 ---
 title: "...on your own"
 chapter: true
-weight: 05
+weight: 16
 ---
 
 ### Running the workshop on your own
 
 
 {{% notice warning %}}
-Only complete this section if you are running the workshop on your own. If you are at an AWS hosted event (such as re\:Invent, Kubecon, Immersion Day, etc), go to [Start the workshop at an AWS event](../aws_event/). Please keep in mind that you will incur charges on your account so please destroy the resources once you are complete with this Workshop.
+Only complete this section if you are running the workshop on your own. If you are at an AWS hosted event (such as "re\:Invent, Kubecon, Immersion Day, etc"), go to [Start the workshop at an AWS event](../aws_event/).
 {{% /notice %}}
 
 {{% children %}}
