@@ -23,7 +23,7 @@ If you are currently logged in to an AWS Account, you can log out using this [li
 
    ![Review Terms](/images/workshop-studio-review-terms.png)
 
-3. Your event dashboard should be presented.  On the left margin, click the "Open AWS console" link.
+3. Your event dashboard should be presented.  On the left margin click on the clipboard icon under "Open AWS console" to copy the AWS Access and Secret Key and Session Token which you'll need for the workshop. Then you can click on "Open AWS console" link.
  
    ![Open AWS Console](/images/workshop-studio-open-console.png)
 
