@@ -10,16 +10,15 @@ We will utilize a repository with a misconfigured EC2 instance.  This is a repre
 
 We'll make changes to your local checkout, but not commit.  This process mirrors what developers would do at their computer prior to checking in their code.
 
-Let's start by cloning a fresh copy of this public repository from GitHub.  In your working environment, run these commands to start from your home directory and perform a clone of the repository:
+Let's start by cloning a fresh copy of this public repository from GitHub.  In your working environment (e.g. VS Code Server terminal if running on AWS), run these commands to start from your home directory and perform a clone of the repository:
 
 ```sh
-cd ~/environment && \
 git clone https://github.com/gautambaghel/vulnerable-ec2 && \
 cd vulnerable-ec2
 ```
 
 {{% notice info %}}
-Note: If you have an existing Snyk account with more than one organization, and you wish to use a non-default org, you can set this.  Find your org ID (ORG_ID below) and it with the command below.  Your desired ORG_ID should be a 32 character UUID unique to you.
+Note: If you have an existing Snyk account with more than one organization, and you wish to use a non-default org, you can set this.  You can find your Snyk Org ID in your Snyk console Settings - General - Organization ID and and set it with the command below.  Your desired ORG_ID should be a 32 character UUID unique to you.
 {{% /notice %}}
 
 ```sh

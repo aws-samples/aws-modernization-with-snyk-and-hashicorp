@@ -14,7 +14,7 @@ weight: 13
   - **Password**: This is the password required to log in to the server.
 ![Event Outputs](/images/Vscode-server-creds.png)
 
-## Step 2: Copy the Password
+## Step 2: Copy the VS Code Server Password
 
 - Copy the **Password** value to your clipboard.
 

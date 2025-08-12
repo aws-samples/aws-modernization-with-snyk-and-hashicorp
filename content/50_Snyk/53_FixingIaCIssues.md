@@ -6,7 +6,7 @@ weight: 53
 
 ## Fixing IaC Issues with Snyk
 
-Here we edit the file named `main.tf` in your cloned repository.  In this file, navigate to the terraform block for the `aws_instance` named `ec2`.  This block is commented with `# WORKSHOP` to indicate it is part of the workshop activities.
+Here we edit the file named `main.tf` in your cloned repository.  In this file, navigate to the terraform resource block named `"aws_security_group" "allow_ssh_from_anywhere"`.  This block creates the security group rule for SSH access and is commented with `# WORKSHOP` to indicate it is part of the workshop activities.
 
 You will see text similar to what is shown below for the *ingress* or what is entering your EC2 instance from the outside.  The best way to do this is to use your workstation and not your Cloud9 instance, since they have different IP addresses.  
 
@@ -25,7 +25,7 @@ We'll change the CIDR block from the `0.0.0.0/0` string, which allows *any* inte
   }
 ```
 
-Next, find the section that specifies the port access for HTTP and make similar modifications for the CIDR block to your IP adress.
+Next, find the section that specifies the port access for HTTP named `"aws_security_group" "allow_port_80_from_anywhere"` and make similar modifications for the CIDR block to be your IP adress.
 
 ```terraform
   ingress {
@@ -48,7 +48,7 @@ Finally, scroll down to the section where you specify the keypair to access your
   key_name = "mam-workshop-keypair"
 ```
 
-Save your file and re-run your snyk iac scan and observe how you now have 1 issue.
+Save your file and re-run your snyk iac scan and observe how you now have only 1 Medium severity issue.
 
 ```bash
 snyk iac test
@@ -78,7 +78,7 @@ Test Summary
 
 ```
 
-This is great!  Now let's look at the last Medium issue for the Non-Encrypted root block device.  We'll take the cue of the name for **root_block_device**, and the dot, and then **encrypted** to know this means a block that is visible in the resource defintion for the *aws_instance* named "ec2."  Uncomment those lines:
+This is great!  Now let's look at the last Medium severity issue for the Non-Encrypted root block device.  We'll take the cue of the name for **root_block_device**, and the dot, and then **encrypted** to know this means a block that is visible in the resource defintion for the *aws_instance* named "ec2."  Uncomment those 3 lines:
 
 ```terraform
 resource "aws_instance" "ec2" {
@@ -196,7 +196,6 @@ Run the `terraform apply` command and re-do the tests to confirm lack of access 
 
 ```bash
 terraform apply -auto-approve
-ssh  ec2-user@3.238.195.45
 curl http://3.238.195.45
 ```
 

@@ -27,7 +27,7 @@ From the settings page navigate into your Run Tasks section from the left-side o
 
 ![TerraformCloudSettingsRunTasks1](/images/tfc-settings-run-tasks-1.png)
 
-You will need four pieces of information, and two come from the Snyk website.  Two are values you enter, the the other two are from the Snyk website.
+You will need four pieces of information, two come from the Snyk website and the other two are values you enter.
 ![TerraformCloudSettingsRunTasks2](/images/tfc-settings-run-tasks-2.png)
 
 At this point, you can fill in two fields.
@@ -50,7 +50,7 @@ Within the Terraform Cloud configuration page, identify the fields for your URL 
 We'll also change the threashold to **medium** for this workshop.
 ![SnykTerraformCloud2](/images/snyk-tfc-settings-2.png)
 
-When you are finished, your screen will look similar to what is shown below with your details.  Click on the enabled, **Create run task** button to finish.  This process validates your URL and HMAC key.
+When you are finished, your screen will look similar to what is shown below with your details. Leave the field 'Source' with the selection as 'Managed'.  Click on the enabled, **Create run task** button to finish.  This process validates your URL and HMAC key.
 ![SnykTerraformCloud3](/images/tfc-settings-run-tasks-3.png)
 
 When you are finished, your will see your new run tasks added to a list of available tasks.  You are ready to use the Snyk Run Task in Terraform Cloud.

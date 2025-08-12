@@ -15,7 +15,7 @@ Tip
 Let's send results to Snyk for viewing in the UI.  At your command prompt, ensure you are authorized with Snyk by issuing the command below.  In the setup steps, you were asked to get the API_TOKEN from snyk.io.  See the [Snyk setup page for those instructions.]({{<ref "30_Partner-Setup/33_SnykSetup.md" >}})
 
 ```bash
-snyk auth
+snyk auth <API_TOKEN>
 ```
 
 Once you are authorized, we'll re-run the same snyk command from before, with the extra parameter `--report` that sends the results to Snyk.  But first, let's undo our github changes because we actually want to see some of the issues we fixed.

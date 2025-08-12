@@ -18,7 +18,7 @@ The Command-Line-Interface (CLI) to Terraform is via the terraform command, whic
 Start by downloading the Terraform CLI to your environment. In this workshop, we’ll prescribe steps to save time and you can find more details on the Terraform learn site at:
 https://learn.hashicorp.com/tutorials/terraform/install-cli
 
-At the Cloud9 prompt, enter these commands to install the Terraform CLI using the yum package manager.
+At the VS Code Server terminal prompt, enter these commands to install the Terraform CLI using the yum package manager and use your VS Code Server password.
 
 1. Install yum-config-manager to manage your repositories:
 
