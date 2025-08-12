@@ -6,15 +6,14 @@ weight: 52
 
 ## Run Snyk IaC
 
-At your command prompt, run this command at the base directory of your repository you checked out.
+At your terminal prompt, run this command at the base directory of your repository you checked out (vulnerable-ec2).
 
 ```sh
-cd ~/environment/vulnerable-ec2 && \
 snyk iac test
 ```
 
 {{% notice info %}}
-In this repository, we include several commented lined identified with the text `WORKSHOP` that you should review and modify.  In most cases, the changes we ask you to do will be to comment/uncomment lines of text, or to modify an existing line.  We will guide you through those steps.
+In this repository, we include several commented lines identified with the text `WORKSHOP` that you should review and modify.  In most cases, the changes we ask you to do will be to comment/uncomment lines of text, or to modify an existing line.  We will guide you through those steps.
 {{% /notice %}}
 
 
@@ -91,7 +90,7 @@ When you examine the entire output, you'll see several pieces of useful informat
 
 In this example, we have several issues that have a severity of Low or Medium, which is good for this workshop.  The focus will be on the three Medium issues.
 
-The first one is about your AWS Security Group allowing open ingress, or being open to the internet.  That is because the CIDR block access is specified as `0.0.0.0/0` for SSH access.  Typically this is not a good practice, so let's review the file entitled `main.tf` to address the issue.  Open the file in your editor and navigate to the section shown below.
+The first one is about your AWS Security Group allowing open ingress, or being open to the internet.  That is because the CIDR block access is specified as `0.0.0.0/0` for SSH access.  Typically this is not a good practice, so let's review the file entitled `main.tf` to address the issue.  Open the file in your editor and navigate to the section shown below so you can check the AWS Security Group configuration.
 
 ```terraform
 resource "aws_security_group" "allow_ssh_from_anywhere" {
@@ -110,7 +109,9 @@ resource "aws_security_group" "allow_ssh_from_anywhere" {
   }
 ```
 
-Let's provision this instance to show how the application is misconfigured to permit access from the internet.
+On the same `main.tf` file replace the region in `provider "aws"` with your AWS region where you'll be creating the resources (e.g. us-west-2).
+
+Let's now provision this Amazon EC2 instance to show how the application is misconfigured to permit access from the internet.
 
 *Previously, we configured an AWS KEY.  We'll need those details to ensure the next parts work.  You have more than one option, and the option we specify here is to use a file named `secrets.auto.tfvars` with contents that look like this:
 
@@ -126,30 +127,7 @@ The workshop depends on the existence of a default VPC.  Some people remove the 
 
 In practical applications, auto.tfvars files do not get committed to github by virtue of gitignore exclusions.  Think of this approach as a quick way to provide credentials.  Other alternatives are to use environment variables or configure IAM roles.  We're taking the easy path for this workshop.
 
-
-```sh
-aws_security_group.allow_port_80_from_anywhere: Creating...
-╷
-│ Error: creating Security Group (allow_ssh_from_anywhere): VPCIdNotSpecified: No default VPC for this user
-│       status code: 400, request id: cdf2f4d5-c0dc-4683-b123-dae5b002351c
-│ 
-│   with aws_security_group.allow_ssh_from_anywhere,
-│   on main.tf line 16, in resource "aws_security_group" "allow_ssh_from_anywhere":
-│   16: resource "aws_security_group" "allow_ssh_from_anywhere" {
-│ 
-╵
-╷
-│ Error: creating Security Group (allow_port_80_from_anywhere): VPCIdNotSpecified: No default VPC for this user
-│       status code: 400, request id: fdf22495-df5d-4c20-aa3a-d222c2756f99
-│ 
-│   with aws_security_group.allow_port_80_from_anywhere,
-│   on main.tf line 44, in resource "aws_security_group" "allow_port_80_from_anywhere":
-│   44: resource "aws_security_group" "allow_port_80_from_anywhere" {
-│ 
-╵
-```
-
-Terraform init will initialize all the providers you're using, providers are plugins that Terraform uses to spin up different resources using APIs. Since we're spinning up AWS resources only the AWS provider will be initialized.
+Run the terraform init command below to initialize all the providers you're using, providers are plugins that Terraform uses to spin up different resources using APIs. Since we're spinning up AWS resources only the AWS provider will be initialized.
 
 ```sh
 terraform init
@@ -244,7 +222,7 @@ Warning: Permanently added '3.238.195.45' (ED25519) to the list of known hosts.
 ec2-user@3.238.195.45: Permission denied (publickey,gssapi-keyex,gssapi-with-mic).
 ```
 
-Similiarly, run the following curl command to see how anybody can access your hosted application.  Remember, your instance has to be in the Running state in order to be able to provide a response to the curl command.  
+Similiarly, run the following curl command replacing the IP address below with the one from your ec2 instance to see how anybody can access your hosted application.  Remember, your instance has to be in the Running state in order to be able to provide a response to the curl command.  
 
 
 ```sh

@@ -12,9 +12,9 @@ We will follow the same steps as before of cloning the repository and running sn
 ## Clone the Repository
 
 We will follow the same checkout steps as before, starting from the top of your home directory.  Notice we'll navigate into a subdirectory of the entire repository.  This repository contains multiple examples of Infrastructure As Code, including the Amazon EKS example Snyk has provided in an AWS Live Hack series.
+Go to your home directory on your terminal (e.g. if on AWS event using VS Code Server use `cd /Workshop`) and execute the commmands below.
 
 ```bash
-cd ~/environment
 git clone https://github.com/snyk-labs/terraform-goof.git
 cd terraform-goof
 ```
@@ -22,13 +22,12 @@ cd terraform-goof
 This repository is a deliberately vulnerable example, and you should not run it in a production envioronment.  Instead, we encourage you to study it.  We include an output plan file for convenience and this next command removes it from your scans:
 
 ```bash
-cd ~/environment/terraform-goof
 mv tf-plan.json tf-plan.json.original
 ```
 
 ## Run `snyk iac test` without context
 
-As before, we'll change into the directory and collect our first round of results.  The example below contains a subset of the results.
+As before, we'll change into the directory and collect our first round of results using the Snyk cli.  The example below contains a subset of the results.
 
 ```bash
 snyk iac test
@@ -50,39 +49,30 @@ Test Summary
 
 ✔ Files without issues: 8
 ✗ Files with issues: 4
-  Ignored issues: 3
-  Total issues: 24 [ 0 critical, 6 high, 10 medium, 8 low ]
+  Ignored issues: 0
+  Total issues: 23 [ 0 critical, 5 high, 10 medium, 8 low ]
 ```
 
-Note the number of issues, which is a total of 24 with 6 high at the time of this writing.
+Note the number of issues, which is a total of 23 with 5 high at the time of this writing.
 
 ## Run `snyk iac test` with dedicated terraform plan option
 
-Next, let's make two modification to the file `main.tf`.
+If using an AWS Workshop, open the `variables.tf` file and change the region and ami-id to the following:
 
-The first is to omit the verison of the terraform provider.  In main.tf, comment out the line assigning the version to be "~> 3.0" by adding the pound "#" sign in front of the line.
-The second change is to personalize the organization to match yours and name the workspace something with your initials:
+```bash
+variable "region" {
+  type    = string
+  default = "us-west-2"
+}
 
-```terraform
-terraform {
-  cloud {
-    organization = "partner-snyk"
-
-    workspaces {
-      name = "terraform-goof-mam2"
-    }
-  }
-
-  required_providers {
-    aws = {
-      source  = "hashicorp/aws"
-#      version = "~> 3.0"
-    }
-  }
+variable "ami" {
+  type    = string
+  description = "ami used for ec2 instance. example - ami-07336266b2c69c546 (terraform-goof-example-ami)"
+  default = "ami-07336266b2c69c546"
 }
 ```
 
-The next commands are to initialize your terraform environment and run a plan.  In the example below, we'll pass along your AWS keys as command-line variables.  Use values specific to you:
+Run these commands are to initialize your terraform environment and run a plan.  In the example below, we'll pass along your AWS keys as command-line variables.  Use values specific to you, and if on an AWS Workshop event you'll also need to add `-var="session_token=YOUR_SESSION_TOKEN"` to the terraform plan command:
 
 ```bash
 terraform init
@@ -107,64 +97,68 @@ Test Summary
   Organization: hashicorp
   Project name: snyk-labs/terraform-goof
 
-✔ Files without issues: 19
-✗ Files with issues: 8
-  Ignored issues: 6
-  Total issues: 57 [ 0 critical, 12 high, 24 medium, 21 low ]
+✔ Files without issues: 20
+✗ Files with issues: 6
+  Ignored issues: 0
+  Total issues: 32 [ 0 critical, 5 high, 14 medium, 13 low ]
   
 ```
 
-At the time of this writing, this new run now contains 57 issues, including 12 high.  Previously we had 24 total issues with 6 high.  If we compare the diferences in the 6 new high values, we'll see the following:
+At the time of this writing, this new run now contains 32 issues, including 5 high.  If we compare the diferences in the new high severity values, we'll see the following:
 
 
 ```bash
- [High] S3 block public ACLs control is disabled
-  Info:    Bucket does not prevent creation of public ACLs. Anyone who can
-           manage bucket's ACLs will be able to grant public access to the
-           bucket
-  Rule:    https://snyk.io/security-rules/SNYK-CC-TF-95
-  Path:    resource > aws_s3_bucket[snyk_public_storage]
-  File:    tf-plan.json
-  Resolve: Set `block_public_acls` attribute to `true`
+ [High] Credentials are configured via provider attributes
+  Info:    Credentials are configured via provider attributes. Use of provider
+           attributes can lead to accidental disclosure of credentials in
+           configuration files, variable definition files, event logs or console
+           logs
+  Rule:    https://security.snyk.io/rules/cloud/SNYK-CC-TF-74
+  Path:    provider[aws][0]
+  File:    main.tf
+  Resolve: Set access credentials via environment variables, and remove
+           `access_key` and `secret_key` attributes from the configuration
+
+  [High] Wildcard action in IAM Policy
+  Info:    The IAM policy allows all actions on resource. Granting permission to
+           perform any action is against 'least privilege' principle
+  Rule:    https://security.snyk.io/rules/cloud/SNYK-CC-TF-69
+  Path:    aws_iam_policy_document[admin-assume-role-policy] > statement
+  File:    modules/iam/main.tf
+  Resolve: Set `statement.action` attribute to specific actions e.g.
+           `s3:ListBucket`
 
   [High] S3 block public ACLs control is disabled
   Info:    Bucket does not prevent creation of public ACLs. Anyone who can
            manage bucket's ACLs will be able to grant public access to the
            bucket
-  Rule:    https://snyk.io/security-rules/SNYK-CC-TF-95
-  Path:    resource > aws_s3_bucket[snyk_storage]
-  File:    tf-plan.json
-  Resolve: Set `block_public_acls` attribute to `true`
-
-  [High] S3 block public policy control is disabled
-  Info:    Bucket does not prevent creation of public policies. Anyone who can
-           manage bucket's policies will be able to grant public access to the
-           bucket.
-  Rule:    https://snyk.io/security-rules/SNYK-CC-TF-96
-  Path:    resource > aws_s3_bucket_public_access_block[snyk_public] >
-           block_public_policy
-  File:    tf-plan.json
-  Resolve: Set `block_public_policy` attribute to `true`
-
-  [High] S3 ignore public ACLs control is disabled
-  Info:    Bucket will recognize public ACLs and allow public access. If public
-           ACL is attached to the bucket, anyone will be able to read and/or
-           write to the bucket.
-  Rule:    https://snyk.io/security-rules/SNYK-CC-TF-97
-  Path:    resource > aws_s3_bucket_public_access_block[snyk_public] >
-           ignore_public_acls
-  File:    tf-plan.json
-  Resolve: Set `ignore_public_acls` attribute to `true`
+  Rule:    https://security.snyk.io/rules/cloud/SNYK-CC-TF-95
+  Path:    resource > aws_s3_bucket[my-new-undeployed-bucket]
+  File:    modules/storage/main.tf
+  Resolve: Set the `aws_s3_bucket_public_access_block` `block_public_acls` field
+           to `true` or use the default setting
 
   [High] S3 restrict public bucket control is disabled
   Info:    Bucket will recognize public policies and allow public access. If
            public policy is attached to the bucket, anyone will be able to read
            and/or write to the bucket.
-  Rule:    https://snyk.io/security-rules/SNYK-CC-TF-98
+  Rule:    https://security.snyk.io/rules/cloud/SNYK-CC-TF-98
   Path:    resource > aws_s3_bucket_public_access_block[snyk_public] >
            restrict_public_buckets
-  File:    tf-plan.json
-  Resolve: Set `restrict_public_buckets` attribute to `true`
+  File:    modules/storage/main.tf
+  Resolve: Set `aws_s3_bucket_public_access_block` `restrict_public_buckets`
+           attribute to `true`, or use default
+
+  [High] S3 restrict public bucket control is disabled
+  Info:    Bucket will recognize public policies and allow public access. If
+           public policy is attached to the bucket, anyone will be able to read
+           and/or write to the bucket.
+  Rule:    https://security.snyk.io/rules/cloud/SNYK-CC-TF-98
+  Path:    resource > aws_s3_bucket_public_access_block[snyk_private] >
+           restrict_public_buckets
+  File:    modules/storage/main.tf
+  Resolve: Set `aws_s3_bucket_public_access_block` `restrict_public_buckets`
+           attribute to `true`, or use default
 ```
 
 The primary reason for this new context is that we've resolved submodules that include additional configuration details not seen because we were not utilizing planned values.  We are utilizing the contents of the new file, `tf-plan.json` in our scans which include greater context.
@@ -178,7 +172,7 @@ The primary reason for this new context is that we've resolved submodules that i
 Another example of a vulnerable IaC project is illustrated below.  This is a popular repository for an Amazon EKS definition.  As a deliberately vulnerable repository, do not run this in a production environment and instead study it for its contents.
 
 ```bash
-cd ~/environment
+cd ..
 git clone https://github.com/adversarialengineering/eks-demo-deployments.git
 cd eks-demo-deployments/terraform/default
 ```
@@ -210,9 +204,7 @@ Test Summary
 -------------------------------------------------------
 ```
 
-Update backend.tf to specify an organization (left blank for you to fill out.)
-Also, update variables.tf to incude your initials, such as "mm."
-Also, update to specify the region in your aws provider block.
+Update variables.tf to specify the region in your aws provider block named `variable "region"`.
 We'll need to configure our AWS Access Key ID plus AWS Secret Access Key on Terraform Cloud.
 
 ```bash
@@ -225,12 +217,12 @@ snyk iac test
 Test Summary
 
   Organization: hashicorp
-  Project name: private
+  Project name: default
 
 ✔ Files without issues: 110
 ✗ Files with issues: 6
   Ignored issues: 0
-  Total issues: 14 [ 0 critical, 1 high, 2 medium, 11 low ]
+  Total issues: 16 [ 0 critical, 1 high, 3 medium, 12 low ]
 ```
 
 ## Next: HashiCorp Terraform Cloud

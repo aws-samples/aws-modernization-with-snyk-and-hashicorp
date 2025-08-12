@@ -30,18 +30,4 @@ Upon completion Variable sets should look like this, hit Create **variable set**
 
 ![TerraformCloudSettings3](/images/tfc-settings-var-sets-3.png)
 
-## Attach the Snyk run task to a workspace
-
-Let's attach the Snyk run task we created in the Partner Setup module to a workspace.
-
-We'll start by going in your workspace, click on **aws-workshop** workspace, open the settings menu and select Run Tasks on the left hand menu
-
-Select the Snyk workshop run task created earlier in the workshop
-
-![TerraformCloudWorkspaceRunTask1](/images/tfc-workspace-run-task-1.png)
-
-Make sure that it's set to the **post-plan** option and the Enforcement level is set to **Manditory**, hit create. 
-
-![TerraformCloudWorkspaceRunTask2](/images/tfc-workspace-run-task-2.png)
-
 Great! In the next section we'll start working with Terraform Cloud workflows!

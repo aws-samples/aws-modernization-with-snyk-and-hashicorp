@@ -35,15 +35,15 @@ The Snyk Command-Line-Interface (CLI) is highly portable and very popular with e
 Start by downloading the Snyk CLI to your environment.  In this workshop, we’ll prescribe steps to save time and you can find more details on the Snyk documentation site at:
 https://docs.snyk.io/snyk-cli/install-the-snyk-cli
 
-At the Cloud9 prompt, enter these commands to download the binary for Linux and move them to your bin folder (/usr/local/bin):
+At the Visual Studio Code Server terminal, enter these commands to download the binary for Linux and move them to your bin folder (/usr/local/bin):
 
 ```sh
-curl https://static.snyk.io/cli/latest/snyk-linux -o snyk && \
+curl https://static.snyk.io/cli/latest/snyk-$(case $(uname -m) in x86_64) echo "linux";; aarch64|arm64) echo "linux-arm64";; *) echo "unsupported" && exit 1;; esac) -o snyk && \
 chmod +x ./snyk && \
 sudo mv ./snyk /usr/local/bin/
 ```
 
-In Cloud9 environments, you will need to authenticate on the CLI with your API token.  Previously, you should have created an API token.  If not, navigate to your Snyk Account (https://app.snyk.io/account), and get your API_TOKEN by clicking into your Account Settings -> API Token section.
+In Visual Studio Code Server environments, you will need to authenticate on the CLI with your API token.  Previously, you should have created an API token.  If not, navigate to your Snyk Account (https://app.snyk.io/account), and get your API_TOKEN by clicking into your Account Settings -> API Token section.
 
 In the KEY field, click your “click to show” box to copy your API token.
 
@@ -59,7 +59,7 @@ That should be it!  Your response should look like the following:
 
     Your account has been authenticated. Snyk is now ready to be used.
 
-If you are not on a Cloud9 environment, then your CLI should be able to start up a web browser and you can authenticate with this command:
+If you are not on a Visual Studio Code Server environment, then your CLI should be able to start up a web browser and you can authenticate with this command:
 
 ```sh
 snyk auth

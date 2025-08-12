@@ -6,12 +6,12 @@ weight: 62
 
 ## Checkout branch from the repository
 
-Let's start by checking out an existing branch of the repository you've been working with so far.  In your working environment, run these commands to start from your home directory and checkout the branch named 'tfc'.
+Let's start by checking out an existing branch of the vulnerable-ec2 repository you've downloaded before.  In your working environment, run these commands to start from your home directory and checkout the branch named 'tfc'.
 
 You should have some local changes, we'll stash them before proceeding.
 
 ```bash
-cd ~/environment/vulnerable-ec2 && \
+cd /Workshop/vulnerable-ec2 && \
 git stash && \
 git checkout tfc
 ```
@@ -27,11 +27,14 @@ Setup your Terraform Cloud account in the CLI, refer to Partner Setup Module > H
 export TF_TOKEN_app_terraform_io="<your_token_here>"
 ```
 
-Configure your Terraform Cloud org & workspace, refer Partner Setup section for more context. Change the feilds ""
+Configure your Terraform Cloud org & workspace, refer Partner Setup section for more context.
 
 ```bash
 vi main.tf
 ```
+
+Change the fields below for your terraform cloud organization and workspace and also the AWS region (e.g us-west-2) under `provider "aws"`
+
 ```sh
 
 # add org & workspace names below 
@@ -45,6 +48,11 @@ terraform {
     }
   }
 
+provider "aws" {
+  # Configuration options
+  # WORKSHOP: Specify the region you like to use, especially if you plan on using your keypair to access your EC2 instance.
+  region = "us-west-2"
+}
 .
 .
 .
