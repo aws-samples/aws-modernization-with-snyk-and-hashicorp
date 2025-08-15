@@ -169,7 +169,7 @@ div.notices.note    { border-left-color: #6c757d; background: #f1f3f5; }
 div.notices.tip     { border-left-color: #28a745; background: #ebf7ee; }
 div.notices.warning { border-left-color: #f0ad4e; background: #fff3cd; }
 div.notices.danger  { border-left-color: #dc3545; background: #fdecea; }
-
+  
 /* Optional: Font Awesome icon for first paragraph */
 div.notices p:first-child {
     margin-top: 0;
