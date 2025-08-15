@@ -20,7 +20,9 @@ You will need a Snyk account to run scans.  Snyk is available for free and all y
 - In the KEY field, select click to show, then select and copy your API token from the field
 - Paste the token that appears on the screen in a safe location for use in future modules
 
+{{% notice warning "Security notice" %}}
 NOTE: Your Snyk access token must be protected and not shared with unauthorized parties to prevent exposure and unauthorized access.
+{{% /notice %}}
 
 You can read more about Snyk Access Token from their docs here.
 
