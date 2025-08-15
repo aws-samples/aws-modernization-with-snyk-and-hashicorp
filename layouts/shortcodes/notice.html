@@ -1,0 +1,9 @@
+{{/* layouts/shortcodes/notice.html */}}
+{{ $type := .Get 0 | default "info" }}
+{{ $title := .Get 1 }}
+<div class="notices {{ $type }}">
+  {{- if $title -}}
+    <p><strong>{{ $title }}</strong></p>
+  {{- end -}}
+  {{- .Inner | markdownify -}}
+</div>

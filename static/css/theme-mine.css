@@ -152,3 +152,38 @@ div.notices p:first-child:before {
 #chapter p, #chapter h3 {
     text-align: left;
 }
+
+/* Base notice block */
+div.notices {
+    padding: 12px 16px 12px 36px;
+    border-left: 4px solid #ccc;
+    border-radius: 4px;
+    margin: 16px 0;
+    background: #f8f9fa;
+    position: relative;
+}
+
+/* Types */
+div.notices.info    { border-left-color: #5bc0de; background: #e8f4fd; }
+div.notices.note    { border-left-color: #6c757d; background: #f1f3f5; }
+div.notices.tip     { border-left-color: #28a745; background: #ebf7ee; }
+div.notices.warning { border-left-color: #f0ad4e; background: #fff3cd; }
+div.notices.danger  { border-left-color: #dc3545; background: #fdecea; }
+
+/* Optional: Font Awesome icon for first paragraph */
+div.notices p:first-child {
+    margin-top: 0;
+}
+div.notices p:first-child:before {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    color: #6c757d;
+    font-family: 'Font Awesome 5 Free';
+    content: "\f06a"; /* exclamation-circle */
+    font-weight: 900;
+}
+div.notices.warning p:first-child:before { color: #f0ad4e; }
+div.notices.info p:first-child:before    { color: #5bc0de; }
+div.notices.tip p:first-child:before     { color: #28a745; }
+div.notices.danger p:first-child:before  { color: #dc3545; }

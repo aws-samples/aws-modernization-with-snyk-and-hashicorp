@@ -265,21 +265,6 @@ Resources:
       VSCodePassword: !GetAtt SecretPlaintext.password
       LinuxFlavor: !If [IsAL2023, 'al2023', 'ubuntu']
 
-
-  RunVSCodeK8sSetupDoc:
-    Type: Custom::RunSSMDocLambda
-    DependsOn: RunVSCodeSSMDoc
-    Properties:
-      ServiceToken: !GetAtt RunSSMDocLambda.Arn
-      ServiceTimeout: 700
-      InstanceId: !Ref VSCodeInstance
-      DocumentName: "VSCodeK8sSetup"
-      CloudWatchLogGroupName: "/aws/ssm/VSCodeK8sSetup"
-      EKSClusterName: !Ref EKSClusterName
-      VSCodeUser: !Ref VSCodeUser
-      LinuxFlavor: !If [IsAL2023, 'al2023', 'ubuntu']
-
-
   RunSSMDocLambdaRole:
     Type: AWS::IAM::Role
     Metadata:
@@ -307,7 +292,6 @@ Resources:
                   - ssm:SendCommand
                 Resource:
                   - !Sub arn:${AWS::Partition}:ssm:${AWS::Region}:${AWS::AccountId}:document/${VSCodeSSMDoc}
-                  - !Sub arn:${AWS::Partition}:ssm:${AWS::Region}:${AWS::AccountId}:document/${VSCodeK8sSSMDoc}
                   - !Sub arn:${AWS::Partition}:ssm:${AWS::Region}:${AWS::AccountId}:document/AmazonCloudWatch-ManageAgent
                   - !Sub arn:${AWS::Partition}:ec2:${AWS::Region}:${AWS::AccountId}:instance/${VSCodeInstance}
                 
@@ -941,23 +925,14 @@ Resources:
                 - al2023
             inputs:
               runCommand:
-                - |
-                  #!/bin/bash
-                  set -e
-
-                  # Install Snyk
-                  sudo curl https://static.snyk.io/cli/latest/snyk-linux -o snyk
-                  chmod +x ./snyk
-                  sudo mv ./snyk /usr/local/bin/
-
-                  # Install Terraform and other tools
-                  #wget -O- https://apt.releases.hashicorp.com/gpg | gpg --dearmor | sudo tee /usr/share/keyrings/hashicorp-archive-keyring.gpg > /dev/null
-                  #echo "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://apt.releases.hashicorp.com $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/hashicorp.list
-                  #sudo apt-get update
-                  #sudo apt-get install -y terraform
-                  #sudo apt-get install -y sqlite telnet jq pngcrush moreutils
-
-                  echo "Installation of tools completed."
+                - '#!/bin/bash'
+                - set -e
+                - curl https://static.snyk.io/cli/latest/snyk-$(case $(uname -m) in x86_64) echo "linux";; aarch64|arm64) echo "linux-arm64";; *) echo "unsupported" && exit 1;; esac) -o snyk
+                - chmod +x ./snyk
+                - sudo mv ./snyk /usr/local/bin/
+                - echo "Snyk installed. Checking configuration"
+                - snyk --version
+                - echo "Installation of Snyk CLi completed."
           
           
           - action: aws:runShellScript
@@ -1065,78 +1040,6 @@ Resources:
                     ls -la ${HomeFolder}
                   fi
 
-  VSCodeK8sSSMDoc:
-    Type: AWS::SSM::Document
-    Properties:
-      Name: "VSCodeK8sSetup"
-      DocumentType: "Command"
-      Content:
-        schemaVersion: "2.2"
-        description: "Configure VSCode instance for Kubernetes and EKS"
-        parameters:
-          LinuxFlavor:
-            type: String
-            default: 'al2023'
-          EKSClusterName:
-            type: String
-            description: "Name of the EKS cluster"
-          VSCodeUser:
-            type: String
-            description: "VSCode user name"
-        mainSteps:
-          - action: aws:runShellScript
-            name: ConfigureKubectl
-            inputs:
-              runCommand:
-                - '#!/bin/bash'
-                - echo "alias k=kubectl" >> /home/{{ VSCodeUser }}/.bashrc
-                - echo "complete -o default -F __start_kubectl k" >> /home/{{ VSCodeUser }}/.bashrc
-                - source /home/{{ VSCodeUser }}/.bashrc
-    
-          - action: aws:runShellScript
-            name: ConfigureEKSAccess
-            precondition:
-              StringEquals:
-                - '{{ LinuxFlavor }}'
-                - al2023
-            inputs:
-              runCommand:
-                - '#!/bin/bash'
-                - set -e
-                - EKS_CLUSTER_NAME="{{ EKSClusterName }}"
-                - REGION=$(curl -s http://169.254.169.254/latest/meta-data/placement/region)
-                - echo "Setting up kubeconfig for EKS cluster: $EKS_CLUSTER_NAME in region $REGION"
-                - mkdir -p /home/{{ VSCodeUser }}/.kube
-                - aws eks update-kubeconfig --name "$EKS_CLUSTER_NAME" --region "$REGION" --kubeconfig /home/{{ VSCodeUser }}/.kube/config
-                - chown -R {{ VSCodeUser }}:{{ VSCodeUser }} /home/{{ VSCodeUser }}/.kube
-                - chmod 600 /home/{{ VSCodeUser }}/.kube/config
-                - echo "EKS kubeconfig setup completed."
-    
-          - action: aws:runShellScript
-            name: InstallSNYK
-            precondition:
-              StringEquals:
-                - '{{ LinuxFlavor }}'
-                - al2023
-            inputs:
-              runCommand:
-                - |
-                  #!/bin/bash
-                  set -e
-
-                  # Install Snyk
-                  sudo curl https://static.snyk.io/cli/latest/snyk-linux -o snyk
-                  chmod +x ./snyk
-                  sudo mv ./snyk /usr/local/bin/
-
-                  # Install Terraform and other tools
-                  #wget -O- https://apt.releases.hashicorp.com/gpg | gpg --dearmor | sudo tee /usr/share/keyrings/hashicorp-archive-keyring.gpg > /dev/null
-                  #echo "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://apt.releases.hashicorp.com $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/hashicorp.list
-                  #sudo apt-get update
-                  #sudo apt-get install -y terraform
-                  #sudo apt-get install -y sqlite telnet jq pngcrush moreutils
-
-                  echo "Installation of tools completed."
 
   VSCodeInstanceRole:
     Type: AWS::IAM::Role
