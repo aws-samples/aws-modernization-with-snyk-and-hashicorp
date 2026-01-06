@@ -1,12 +1,12 @@
 ---
-title: "Configure Terraform Cloud"
+title: "Configure HCP Terraform"
 chapter: true
 weight: 61
 ---
 
-## Create a variable set in Terraform Cloud
+## Create a variable set in HCP Terraform
 
-In order for Terraform Cloud to create resources for you in AWS it needs access keys, we can provide this key using variable sets.
+In order for HCP Terraform to create resources for you in AWS it needs access keys, we can provide this key using variable sets.
 
 First step is to open settings
 
@@ -30,4 +30,4 @@ Upon completion Variable sets should look like this, hit Create **variable set**
 
 ![TerraformCloudSettings3](/images/tfc-settings-var-sets-3.png)
 
-Great! In the next section we'll start working with Terraform Cloud workflows!
+Great! In the next section we'll start working with HCP Terraform workflows!

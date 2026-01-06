@@ -4,16 +4,16 @@ chapter: true
 weight: 34
 ---
 
-# Snyk Terraform Cloud Run Task Instructions
-Snyk is available in Terraform Cloud as a Run Task to leverage Snyk results in your workflow.
+# Snyk HCP Terraform Run Task Instructions
+Snyk is available in HCP Terraform as a Run Task to leverage Snyk results in your workflow.
 
 {{% notice info %}}
 <p style='text-align: left;'>
-Your Terraform Cloud configuration must support Run Tasks.  This feature is enabled in Terraform Cloud Business Plans and higher.
+Your HCP Terraform configuration must support Run Tasks. This feature is enabled in HCP Terraform Business Plans and higher.
 </p>
 {{% /notice %}}
 
-## 1. Sign In to Terraform Cloud
+## 1. Sign In to HCP Terraform
 
 
 ![TerraformCloudCreateAccount](/images/terraform-cloud-create-account.png)
@@ -42,10 +42,10 @@ Let's next navigate to Snyk.io to get the remaining fields.  Keep this page open
 Navigate to your snyk.io account and click on the integrations tab of your toolbar.
 ![SnykSettings](/images/snyk-settings-toolbar-2.png)
 
-Search for or find the tile for Terraform Cloud.
+Search for or find the tile for HCP Terraform.
 ![SnykTerraformCloud1](/images/snyk-tfc-settings-1.png)
 
-Within the Terraform Cloud configuration page, identify the fields for your URL and  HMAC key.  These are two values you'll copy and enter into the Terraform Cloud page for their respective values.
+Within the HCP Terraform configuration page, identify the fields for your URL and  HMAC key.  These are two values you'll copy and enter into the HCP Terraform page for their respective values.
 
 We'll also change the threashold to **medium** for this workshop.
 ![SnykTerraformCloud2](/images/snyk-tfc-settings-2.png)
@@ -53,7 +53,7 @@ We'll also change the threashold to **medium** for this workshop.
 When you are finished, your screen will look similar to what is shown below with your details. Leave the field 'Source' with the selection as 'Managed'.  Click on the enabled, **Create run task** button to finish.  This process validates your URL and HMAC key.
 ![SnykTerraformCloud3](/images/tfc-settings-run-tasks-3.png)
 
-When you are finished, your will see your new run tasks added to a list of available tasks.  You are ready to use the Snyk Run Task in Terraform Cloud.
+When you are finished, your will see your new run tasks added to a list of available tasks.  You are ready to use the Snyk Run Task in HCP Terraform.
 
 ### Next Section: Running the Workshop
 Now that you have setup Snyk and the CLI, you are ready to start your workshop.
